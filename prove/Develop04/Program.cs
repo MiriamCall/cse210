@@ -4,8 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
-
+        private int choice = 0;
         public void DisplayMenu()
         {
              while (choice !=4) {
@@ -19,13 +18,17 @@ class Program
                 {
                     switch (choice)
                     {
-                        case 1:
+                        case 1: Console.WriteLine("");
+                        // Breathing Activity
                         break;
-                        case 2:
+                        case 2: 
+                        // Reflection Activity
                         break;
-                        case 3:
+                        case 3: 
+                        // Listing Activity
                         break;
-                        case 4:
+                        case 4: 
+                        // Exit
                         Environment.Exit(0);
                         break;
                     }
