@@ -11,6 +11,7 @@ class Breathing : Activity
         _description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
     }
 
+    // goes in Activity.cs
     public int GetDuration()
     {
         Console.Write("How long, in seconds, would you like your session? ");
@@ -34,6 +35,7 @@ class Breathing : Activity
         }
     }
 
+    // goes in Activity.cs
     private void waitTimerAnimation()
     {
         // Define the spinner frames as a string

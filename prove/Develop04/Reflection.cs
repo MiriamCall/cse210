@@ -1,20 +1,34 @@
-// class Reflection : Activity
+class Reflection : Activity
+{
+
+    private List<string> _prompts;
+    private List<string> _questions;
+
+    public Reflection()
+    {
+        _name = "Reflection";
+        _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+    }
+
+     private List<string> _prompt()
+    {
+        List<string> prompts = new List<string>();
+        {
+            "Think of a time when you stood up for someone else."
+            "Think of a time when you did something really difficult."
+            "Think of a time when you helped someone in need."
+            "Think of a time when you did something truly selfless."
+        };
+        return prompts;
+    }
+    
+}
 // {
 //     private List<string> _prompts;
 //     private List<string> _questions;
 
 
-//     private List<string> _prompts()
-//     {
-//         List<string> prompts = new List<string>();
-//         {
-//             "Think of a time when you stood up for someone else."
-//             "Think of a time when you did something really difficult."
-//             "Think of a time when you helped someone in need."
-//             "Think of a time when you did something truly selfless."
-//         };
-//         return prompts;
-//     }
+   
 
 //     private List<string> _questions()
 //     {

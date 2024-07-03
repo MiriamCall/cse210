@@ -21,4 +21,7 @@ class Activity
         _duration = duration;
         _endMessage = endMessage;
     }
+
+
+    
 }
