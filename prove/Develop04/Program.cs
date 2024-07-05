@@ -23,6 +23,8 @@ class Program
                     _breathing.StartBreathing();
                     break;
                     case 2: 
+                    Reflection _reflection = new Reflection();
+                    _reflection.StartReflection();
                     // Reflection Activity
                     break;
                     case 3: 
