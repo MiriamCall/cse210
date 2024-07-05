@@ -28,6 +28,8 @@ class Program
                     // Reflection Activity
                     break;
                     case 3: 
+                    Listing _listing = new Listing();
+                    _listing.StartListing();
                     // Listing Activity
                     break;
                     case 4: 
