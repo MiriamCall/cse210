@@ -24,19 +24,26 @@ class Listing : Activity
         Console.WriteLine(_startMessage);
         waitTimerAnimation();
 
-        int promptIndex = 0;
-        while (_duration > 0)
+        string prompt = _listPrompts[new Random().Next(0, _listPrompts.Count)];
+        Console.WriteLine(prompt);
+
+        Console.WriteLine("You may begin listing. Press Enter after each item. Press Enter twice to finish.");
+        Thread.Sleep(5000);
+
+        List<string> list = new List<string>();
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+
+        while (DateTime.Now < endTime)
         {
-            Console.Clear();
-            Console.WriteLine(_listPrompts[promptIndex]);
-            Thread.Sleep(5000);
-            _duration -= 10;
-            promptIndex++;
-            if (promptIndex == _listPrompts.Count)
+            string item = Console.ReadLine();
+            if (item == "")
             {
-                promptIndex = 0;
+                break;
             }
+            list.Add(item);
         }
+         Console.WriteLine($"You listed {list.Count} items.");
+         
         Console.WriteLine(_endMessage);
     }
 }
