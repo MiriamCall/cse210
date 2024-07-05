@@ -43,7 +43,7 @@ class Listing : Activity
             list.Add(item);
         }
          Console.WriteLine($"You listed {list.Count} items.");
-         
+        
         Console.WriteLine(_endMessage);
     }
 }
