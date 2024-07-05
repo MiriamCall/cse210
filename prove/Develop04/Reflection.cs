@@ -22,7 +22,7 @@ class Reflection : Activity
         "How can you keep this experience in mind in the future?"
     };
 
-
+    private static int _lastPromptIndex = -1; // Static to keep track of the last used prompt across instances
 
     public Reflection()
     {
@@ -35,29 +35,26 @@ class Reflection : Activity
         Console.Clear();
         Console.WriteLine(_welcomeMessage);
         Console.WriteLine(_description);
-        GetDuration(); // Assuming this method sets _duration based on user input
+        GetDuration();
         Console.WriteLine(_startMessage);
         waitTimerAnimation();
 
-        int promptIndex = 0;
-        int questionIndex = 0;
-        while (_duration > 0)
+        _lastPromptIndex = (_lastPromptIndex + 1) % _prompts.Count; // Rotate to the next prompt
+        string prompt = _prompts[_lastPromptIndex];
+
+        Console.Clear();
+        Console.WriteLine("=========================================================");
+        Console.WriteLine($"{prompt}\n");
+
+        foreach (var question in _questions)
         {
-            Console.Clear();
-            Console.WriteLine(_prompts[promptIndex]);
-            Console.WriteLine(_questions[questionIndex]);
+            Console.WriteLine($"    -> {question}");
             Thread.Sleep(5000);
             _duration -= 10;
-            promptIndex++;
-            questionIndex++;
-            if (promptIndex == _prompts.Count)
-            {
-                promptIndex = 0;
-            }
-            if (questionIndex == _questions.Count)
-            {
-                questionIndex = 0;
-            }
+            if (_duration <= 0)
+                break;
         }
+
+        Console.WriteLine("=========================================================");
     }
 }
