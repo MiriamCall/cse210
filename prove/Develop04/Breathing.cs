@@ -11,11 +11,12 @@ class Breathing : Activity
         _description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
     }
 
+
     public void CountDownTimerInAndOut(int duration, string message)
     {
         for (int i = duration; i > 0; i--)
         {
-            Console.Write($"\r{message}{i}");
+            Console.Write($"\r{message}{i - 1}");
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
@@ -28,9 +29,9 @@ class Breathing : Activity
     public void StartBreathing()
     {
         Console.Clear();
-        Console.WriteLine(_welcomeMessage);
+        DisplayWelcomeMessage();
         Console.WriteLine(_description);
-        GetDuration(); // Assuming this method sets _duration based on user input
+        UpdateDuration();
         Console.WriteLine(_startMessage);
         waitTimerAnimation();
     
@@ -54,7 +55,7 @@ class Breathing : Activity
             Console.WriteLine("\n");
         }
     
-        Console.WriteLine(_endMessage);
+        DisplayEndMessage();
     }
 
 

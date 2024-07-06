@@ -7,7 +7,7 @@ class Program
         int choice = 0;
         while (choice !=4)
         {
-            Console.Clear();
+            // Console.Clear();
             Console.WriteLine("1. Start Breathing Activity");
             Console.WriteLine("2. Start Reflection Activity");
             Console.WriteLine("3. Start Listing Activity");

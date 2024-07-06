@@ -18,9 +18,9 @@ public Listing()
     public void StartListing()
     {
         Console.Clear();
-        Console.WriteLine(_welcomeMessage);
+        DisplayWelcomeMessage();
         Console.WriteLine(_description);
-        GetDuration(); // Assuming this method sets _duration based on user input
+        UpdateDuration(); // Assuming this method sets _duration based on user input
         Console.WriteLine(_startMessage);
         waitTimerAnimation();
 
@@ -44,6 +44,6 @@ public Listing()
         }
          Console.WriteLine($"You listed {list.Count} items.");
         
-        Console.WriteLine(_endMessage);
+        DisplayEndMessage();
     }
 }

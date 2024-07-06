@@ -33,9 +33,9 @@ class Reflection : Activity
     public void StartReflection()
     {
         Console.Clear();
-        Console.WriteLine(_welcomeMessage);
+        DisplayWelcomeMessage();
         Console.WriteLine(_description);
-        GetDuration();
+        UpdateDuration();
         Console.WriteLine(_startMessage);
         waitTimerAnimation();
 
@@ -43,18 +43,18 @@ class Reflection : Activity
         string prompt = _prompts[_lastPromptIndex];
 
         Console.Clear();
-        Console.WriteLine("=========================================================");
         Console.WriteLine($"{prompt}\n");
 
-        foreach (var question in _questions)
+        int timeSpent = 0;
+        for (int i = 0; i < _questions.Count && timeSpent < _duration; i++)
         {
-            Console.WriteLine($"    -> {question}");
+            Console.WriteLine($"    -> {_questions[i]}");
             Thread.Sleep(5000);
-            _duration -= 10;
-            if (_duration <= 0)
-                break;
+            timeSpent += 5;
         }
 
-        Console.WriteLine("=========================================================");
+        DisplayEndMessage();
     }
 }
+
+
