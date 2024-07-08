@@ -5,19 +5,28 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Hello World!");
+        Console.WriteLine("Hello, World!");
+    
+        Employee employee = new Employee("Bob", 40, 23.77);
+        
+        // Console.WriteLine($"{employee.GetName()} is due: {employee.GetPay()}");
 
-        Person person1 = new Person("John", "Doe", 30, 180);
+        ConstructionWorker constructionWorker = new ConstructionWorker("Alice", 40, 35.88);
+        // Console.WriteLine($"{constructionWorker.GetName()} is due: {constructionWorker.GetPay()}");
 
-        Console.WriteLine(person1.PersonInformation());
+        Doctor doctor = new Doctor("Belinda", 240000.99);
+        // Console.WriteLine($"{doctor.GetName()} is due: {doctor.GetPay()}");
 
-        Fireman fireman1 = new Fireman("Firefighter", "Jane", "Doe", 25, 150);
+        List<employee> employees = new List<Employee>();
+        employees.Add(employee):
+        employees.Add(constructionWorker);
+        employees.Add(doctor);
 
-        Console.WriteLine(fireman1.PersonInformation());
-        Console.WriteLine(fireman1.FiremanInformation());
-
-        Police police1 = new Police("Taser and Club", "Jack", "Doe", 35, 200);
-        Console.WriteLine(police1.PersonInformation());
-        Console.WriteLine(police1.PoliceInformation());
+        foreach (Employee e in employees)
+        {
+            Console.WriteLine($"{e.GetName()} is due: {e.GetPay()}");
+        }
     }
+
+
 }
