@@ -1,6 +1,6 @@
 class ConstructionWorker : Employee
 {
-    public ConstructionWorker(string name, double hours, double wage) : base(name, hoursWorked, hourlyWage)
+    public ConstructionWorker(string name, double hours, double wage) : base(name, hours, wage)
     {
     }
     public override double GetPay()
