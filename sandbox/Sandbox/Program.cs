@@ -25,6 +25,7 @@ class Program
         foreach (Employee e in employees)
         {
             Console.WriteLine($"{e.GetName()} is due: {e.GetPay()} : Insurance: {e.InsuranceCost()}");
+            Console.WriteLine(e.toString());
         }
     }
 
