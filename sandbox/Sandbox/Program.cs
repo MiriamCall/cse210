@@ -7,25 +7,25 @@ class Program
     {
         Console.WriteLine("Hello, World!");
     
-        Employee employee = new Employee("Bob", 40, 23.77);
+        // Employee employee = new Employee("Bob", 40, 23.77);
         
-        Console.WriteLine($"{employee.GetName()} is due: {employee.GetPay()}");
+        // Console.WriteLine($"{employee.GetName()} is due: {employee.GetPay()}");
 
         ConstructionWorker constructionWorker = new ConstructionWorker("Alice", 40, 35.88);
-        Console.WriteLine($"{constructionWorker.GetName()} is due: {constructionWorker.GetPay()}");
+        // Console.WriteLine($"{constructionWorker.GetName()} is due: {constructionWorker.GetPay()}");
 
-        // Doctor doctor = new Doctor("Belinda", 240000.99);
-        // // Console.WriteLine($"{doctor.GetName()} is due: {doctor.GetPay()}");
+        Doctor doctor = new Doctor("Belinda", 240000.99);
+        // Console.WriteLine($"{doctor.GetName()} is due: {doctor.GetPay()}");
 
-        // List<employee> employees = new List<Employee>();
+        List<Employee> employees = new List<Employee>();
         // employees.Add(employee):
-        // employees.Add(constructionWorker);
-        // employees.Add(doctor);
+        employees.Add(constructionWorker);
+        employees.Add(doctor);
 
-        // foreach (Employee e in employees)
-        // {
-        //     Console.WriteLine($"{e.GetName()} is due: {e.GetPay()}");
-        // }
+        foreach (Employee e in employees)
+        {
+            Console.WriteLine($"{e.GetName()} is due: {e.GetPay()} : Insurance: {e.InsuranceCost()}");
+        }
     }
 
 
