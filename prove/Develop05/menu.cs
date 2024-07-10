@@ -20,12 +20,13 @@ class Menu
                     switch (choice)
                     {
                         case 1:
-                            while choice !=3
+                            while choice !=4
                             {
                                 Console.WriteLine("1. Simple Goal")
                                 Console.WriteLine("2. Eternal Goal")
                                 Console.WriteLine("3. Checklist Goal")
 
+                                Console.WriteLine("What type of goal would you like to create?")
                                 string input = Console.ReadLine();
                                 if(int.TryParse(input, out choice))
                                 {
