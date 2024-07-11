@@ -5,7 +5,7 @@ class Menu
     private Goal _goal = new Goal();
     public void DisplayMenu()
         {
-            while choice !=6
+            while (choice !=6)
             {
                 Console.WriteLine("1. Create New Goal");
                 Console.WriteLine("2. List Goals");
@@ -20,15 +20,15 @@ class Menu
                     switch (choice)
                     {
                         case 1:
-                            while choice !=4
+                            while (choice !=4)
                             {
                                 Console.WriteLine("1. Simple Goal");
                                 Console.WriteLine("2. Eternal Goal");
                                 Console.WriteLine("3. Checklist Goal");
 
                                 Console.WriteLine("What type of goal would you like to create?");
-                                string input = Console.ReadLine();
-                                if(int.TryParse(input, out choice))
+                                string userInput = Console.ReadLine();
+                                if(int.TryParse(userInput, out choice))
                                 {
                                     switch (choice)
                                     {
@@ -65,5 +65,4 @@ class Menu
                 }
             }
         }
-    )
 }
