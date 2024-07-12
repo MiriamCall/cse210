@@ -20,30 +20,8 @@ class Menu
                     switch (choice)
                     {
                         case 1:
-                            while (choice !=4)
-                            {
-                                Console.WriteLine("1. Simple Goal");
-                                Console.WriteLine("2. Eternal Goal");
-                                Console.WriteLine("3. Checklist Goal");
-
-                                Console.WriteLine("What type of goal would you like to create?");
-                                string userInput = Console.ReadLine();
-                                if(int.TryParse(userInput, out choice))
-                                {
-                                    switch (choice)
-                                    {
-                                        case 1:
-                                            // Create Simple Goal
-                                            break;
-                                        case 2:
-                                            // Create Eternal Goal
-                                            break;
-                                        case 3:
-                                            // Create Checklist Goal
-                                            break;
-                                    }
-                                }
-                            }
+                            // Create New Goal
+                            DisplayCreateGoalMenu();
                             break;
                         case 2:
                             
@@ -65,4 +43,62 @@ class Menu
                 }
             }
         }
+    public void DisplayCreateGoalMenu()
+{
+    int createGoalChoice = 0;
+    while (createGoalChoice !=4)
+    {
+        Console.WriteLine("1. Simple Goal");
+        Console.WriteLine("2. Eternal Goal");
+        Console.WriteLine("3. Checklist Goal");
+        Console.WriteLine("4. Back");
+        Console.Write("What type of goal would you like to create? ");
+
+        string input = Console.ReadLine();
+        if (int.TryParse(userInput, out CreateGoalChoice))
+        {
+            switch (createGoalChoice)
+            {
+                case 1:
+                    // Create Simple Goal
+                    Console.Write("Enter the name of the goal: ");
+                    string name = Console.ReadLine();
+                    Console.Write("Enter the description of the goal: ");
+                    string description = Console.ReadLine();
+                    Console.Write("Enter the number of points for the goal: ");
+                    string points = Console.ReadLine();
+                    Console.Write("Is the goal completed? (true/false): ");
+                    string completed = Console.ReadLine();
+
+                    _goal = new SimpleGoal(name, description, points, completed);
+                    break;
+                case 2:
+                    // Create Eternal Goal
+                    Console.Write("Enter the name of the goal: ");
+                    string name = Console.ReadLine();
+                    Console.Write("Enter the description of the goal: ");
+                    string description = Console.ReadLine();
+                    Console.Write("Enter the number of points for the goal: ");
+                    string points = Console.ReadLine();
+
+                    _goal = new EternalGoal(name, description, points, completed);
+                    break;
+
+                case 3:
+                    // Create Checklist Goal
+                    Console.Write("Enter the name of the goal: ");
+                    string name = Console.ReadLine();
+                    Console.Write("Enter the description of the goal: ");
+                    string description = Console.ReadLine();
+                    Console.Write("Enter the number of points for the goal: ");
+                    string points = Console.ReadLine();
+                    Console.Write("Is the goal completed? (true/false): ");
+                    string completed = Console.ReadLine();
+
+                    _goal = new ChecklistGoal(name, description, points, completed);
+                    break;
+            }
+        }
+    }
+}
 }
