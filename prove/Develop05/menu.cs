@@ -1,48 +1,46 @@
 class Menu
 {
     private int choice = 0;
-
-    private Goal _goal = new Goal();
     public void DisplayMenu()
+    {
+        while (choice !=6)
         {
-            while (choice !=6)
-            {
-                Console.WriteLine("1. Create New Goal");
-                Console.WriteLine("2. List Goals");
-                Console.WriteLine("3. Save Goals");
-                Console.WriteLine("4. Load Goals");
-                Console.WriteLine("5. Record Event");
-                Console.WriteLine("6. Quit");
+            Console.WriteLine("1. Create New Goal");
+            Console.WriteLine("2. List Goals");
+            Console.WriteLine("3. Save Goals");
+            Console.WriteLine("4. Load Goals");
+            Console.WriteLine("5. Record Event");
+            Console.WriteLine("6. Quit");
 
-                string input = Console.ReadLine();
-                if(int.TryParse(input, out choice))
+            string input = Console.ReadLine();
+            if(int.TryParse(input, out choice))
+            {
+                switch (choice)
                 {
-                    switch (choice)
-                    {
-                        case 1:
-                            // Create New Goal
-                            DisplayCreateGoalMenu();
-                            break;
-                        case 2:
-                            
-                            break;
-                        case 3:
-                            
-                            break;
-                        case 4:
-                           
-                            break;
-                        case 5:
-                            
-                            break;
-                        case 6:
-                            // Quit
-                            Environment.Exit(0);
-                            break;
-                    }
+                    case 1:
+                        // Create New Goal
+                        DisplayCreateGoalMenu();
+                        break;
+                    case 2:
+                        
+                        break;
+                    case 3:
+                        
+                        break;
+                    case 4:
+                        
+                        break;
+                    case 5:
+                        
+                        break;
+                    case 6:
+                        // Quit
+                        Environment.Exit(0);
+                        break;
                 }
             }
         }
+    }
     public void DisplayCreateGoalMenu()
 {
     int createGoalChoice = 0;
@@ -54,48 +52,48 @@ class Menu
         Console.WriteLine("4. Back");
         Console.Write("What type of goal would you like to create? ");
 
-        string input = Console.ReadLine();
-        if (int.TryParse(userInput, out CreateGoalChoice))
+        string userInput = Console.ReadLine();
+        if (int.TryParse(userInput, out createGoalChoice))
         {
             switch (createGoalChoice)
             {
                 case 1:
                     // Create Simple Goal
                     Console.Write("Enter the name of the goal: ");
-                    string name = Console.ReadLine();
+                    string simpleGoalName = Console.ReadLine();
                     Console.Write("Enter the description of the goal: ");
-                    string description = Console.ReadLine();
+                    string simpleGoalDescription = Console.ReadLine();
                     Console.Write("Enter the number of points for the goal: ");
-                    string points = Console.ReadLine();
+                    string simpleGoalPoints = Console.ReadLine();
                     Console.Write("Is the goal completed? (true/false): ");
-                    string completed = Console.ReadLine();
+                    string simpleGoalCompleted = Console.ReadLine();
 
-                    _goal = new SimpleGoal(name, description, points, completed);
+                    // _goal = new SimpleGoal(name, description, points, completed);
                     break;
                 case 2:
                     // Create Eternal Goal
                     Console.Write("Enter the name of the goal: ");
-                    string name = Console.ReadLine();
+                    string EternalGoalName = Console.ReadLine();
                     Console.Write("Enter the description of the goal: ");
-                    string description = Console.ReadLine();
+                    string EternalGoalDescription = Console.ReadLine();
                     Console.Write("Enter the number of points for the goal: ");
-                    string points = Console.ReadLine();
+                    string EternalGoalPoints = Console.ReadLine();
 
-                    _goal = new EternalGoal(name, description, points, completed);
+                    // _goal = new EternalGoal(name, description, points, completed);
                     break;
 
                 case 3:
                     // Create Checklist Goal
                     Console.Write("Enter the name of the goal: ");
-                    string name = Console.ReadLine();
+                    string ChecklistGoalName = Console.ReadLine();
                     Console.Write("Enter the description of the goal: ");
-                    string description = Console.ReadLine();
+                    string ChecklistGoalDescription = Console.ReadLine();
                     Console.Write("Enter the number of points for the goal: ");
-                    string points = Console.ReadLine();
+                    string ChecklistGoalPoints = Console.ReadLine();
                     Console.Write("Is the goal completed? (true/false): ");
-                    string completed = Console.ReadLine();
+                    string ChecklistGoalCompleted = Console.ReadLine();
 
-                    _goal = new ChecklistGoal(name, description, points, completed);
+                    // _goal = new ChecklistGoal(name, description, points, completed);
                     break;
             }
         }

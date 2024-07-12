@@ -1,9 +1,5 @@
 // help in various places throughout the code from chatGPT
 
-
-
-using System.Net;
-
 public abstract class Goal
 {
     private string _name;
