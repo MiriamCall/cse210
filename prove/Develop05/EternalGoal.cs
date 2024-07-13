@@ -3,7 +3,6 @@ class EternalGoal : Goal
     // Constructor:
     public EternalGoal()
     {
-        GetGoalData();
         _goalType = "Eternal Goal";
     }
 

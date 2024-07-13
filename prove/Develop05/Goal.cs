@@ -4,12 +4,18 @@ public abstract class Goal
 {
     // Member Variables:
     protected string _goalType;
-    protected string _name;
-    protected string _description;
-    protected int _points;
-    protected bool _completed;
+    protected string _name = "";
+    protected string _description = "";
+    protected int _points = 0;
+    protected bool _completed = false;
 
     // Constructor:
+
+    // Default Constructor:
+    public Goal()
+    {
+
+    }
     public Goal(string name, string description, int points, bool completed)
     {
         _name = name;
@@ -18,14 +24,6 @@ public abstract class Goal
         _completed = completed;
     }
 
-    // Default Constructor:
-    public Goal()
-    {
-        _name = "";
-        _description = "";
-        _points = 0;
-        _completed = false;
-    }
 
     // Get and Set _name
     public void UpdateName(string name)
@@ -98,6 +96,11 @@ public abstract class Goal
         UpdateGoalName();
         UpdateGoalDescription();
         UpdateGoalPoints();
+    }
+
+    public void InitializeFromUserInput()
+    {
+        GetGoalData();
     }
 
      // Method to get data for serialization

@@ -10,7 +10,6 @@ class ChecklistGoal : Goal
     // Constructor:
     public ChecklistGoal()
     {   
-        GetGoalData();
         _goalType = "Checklist Goal";
     }
 

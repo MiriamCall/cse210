@@ -82,7 +82,10 @@ public class GoalTracker
     public void LoadFromSerializedData(JsonElement data)
     {
         _totalPoints = data.GetProperty("TotalPoints").GetInt32();
-        _goals = JsonSerializer.Deserialize<List<Goal>>(data.GetProperty("Goals").GetRawText());
+        _goals = JsonSerializer.Deserialize<List<Goal>>(
+            data.GetProperty("Goals").GetRawText(), 
+            new JsonSerializerOptions { Converters = { new GoalConverter() } }
+        );
     }
     
 

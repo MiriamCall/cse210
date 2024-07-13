@@ -88,18 +88,21 @@ class Menu
                 case 1:
                     // Create Simple Goal
                     SimpleGoal simpleGoal = new SimpleGoal();
+                    simpleGoal.InitializeFromUserInput();
                     _goalTracker.AddGoal(simpleGoal);
                     break;
 
                 case 2:
                     // Create Eternal Goal
                     EternalGoal eternalGoal = new EternalGoal();
+                    eternalGoal.InitializeFromUserInput();
                     _goalTracker.AddGoal(eternalGoal);
                     break;
 
                 case 3:
                     // Create Checklist Goal
                     ChecklistGoal checklistGoal = new ChecklistGoal();
+                    checklistGoal.InitializeFromUserInput();
                     _goalTracker.AddGoal(checklistGoal);
                     break;
             }

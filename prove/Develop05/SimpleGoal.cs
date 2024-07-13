@@ -3,9 +3,9 @@ class SimpleGoal : Goal
     // Constructor:
     public SimpleGoal()
     {
-        GetGoalData();
         _goalType = "Simple Goal";
     }
+    
 
     public SimpleGoal(string name, string description, int points)
     {

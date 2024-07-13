@@ -1,29 +1,22 @@
 {
-  "TotalPoints": 510,
+  "TotalPoints": 20,
   "Goals": [
     {
-      "Type": "SimpleGoal",
+      "Type": "Simple Goal",
       "Name": "test",
-      "Description": "This is a test",
+      "Description": "testing",
       "Points": 10,
-      "Completed": false
+      "Completed": true
     },
     {
-      "Type": "ChecklistGoal",
-      "Name": "drink water",
-      "Description": "drink 8 bottles of water",
+      "Type": "Checklist Goal",
+      "Name": "Pushups",
+      "Description": "Do 10 pushups",
       "Points": 10,
       "Completed": false,
-      "RequiredCount": 8,
-      "BonusPoints": 200,
+      "BonusPoints": 100,
+      "RequiredCount": 10,
       "CurrentCount": 1
-    },
-    {
-      "Type": "SimpleGoal",
-      "Name": "smile",
-      "Description": "smile at Eli",
-      "Points": 500,
-      "Completed": true
     }
   ]
 }
