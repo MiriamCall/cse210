@@ -1,7 +1,6 @@
 class ChecklistGoal : Goal
 {
     private int _bonusPoints;
-
     private int _targetChecklistInputCount;
     private int _currentChecklistCount;
 
