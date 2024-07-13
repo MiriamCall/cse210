@@ -82,19 +82,19 @@ class Menu
             // Switch statement to determine which type of goal to create
             switch (createGoalChoice)
             {
-                // Create Simple Goal
                 case 1:
+                    // Create Simple Goal
                     SimpleGoal simpleGoal = new SimpleGoal();
                     _goalTracker.AddGoal(simpleGoal);
                     break;
 
-                // Create Eternal Goal
                 case 2:
+                    // Create Eternal Goal
                     EternalGoal eternalGoal = new EternalGoal();
                     break;
 
-                // Create Checklist Goal
                 case 3:
+                    // Create Checklist Goal
                     ChecklistGoal checklistGoal = new ChecklistGoal();
                     break;
             }
