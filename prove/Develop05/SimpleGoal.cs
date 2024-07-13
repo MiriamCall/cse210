@@ -1,36 +1,19 @@
 class SimpleGoal : Goal
 {
-    public string Name{
-        get;
-        private set;
-    }
-
-    public string Description {
-        get;
-        private set;
-    }
-
-    public bool IsAchieved{
-        get;
-        private set;
-    }
-
-    public SimpleGoal(string name, string description) {
-        Name = name;
-        Description = description;
-        IsAchieved = false;
-    }
-
-    public override string GetGoalType()
+    // Constructor:
+    public SimpleGoal(string name, string description, int points, bool completed) : base(name, description, points, completed)
     {
-        return "SimpleGoal";
+        _goalType = "Simple Goal";
     }
-    public override int RecordEvent()
+
+    public override void UpdateGoalType(string goalType)
     {
-        IsAchieved = true;
-        return 1;
+        _goalType = goalType;
     }
-    public override void RunGoal()
+
+    public override int UpdateGoal()
     {
+        _completed = true;
+        return _points;
     }
 }

@@ -2,11 +2,14 @@
 
 public abstract class Goal
 {
-    private string _name;
-    private string _description;
-    private int _points;
-    private bool _completed;
+    // Member Variables:
+    protected string _goalType;
+    protected string _name;
+    protected string _description;
+    protected int _points;
+    protected bool _completed;
 
+    // Constructor:
     public Goal(string name, string description, int points, bool completed)
     {
         _name = name;
@@ -15,6 +18,7 @@ public abstract class Goal
         _completed = completed;
     }
 
+    // Default Constructor:
     public Goal()
     {
         _name = "";
@@ -23,17 +27,14 @@ public abstract class Goal
         _completed = false;
     }
 
-    public string GetName()
+    // Get and Set _name
+    public void UpdateName(string name)
     {
-        return _name;
+        _name = name;
     }
 
-    public string GetDescription()
-    {
-        return _description;
-    }
-
-    public void SetDescription(string description)
+    // Get and Set _description
+    public void UpdateDescription(string description)
     {
         _description = description;
     }
@@ -42,38 +43,30 @@ public abstract class Goal
     {
         return _points;
     }
-
+    // Set _points
     public void SetPoints(int points)
     {
         _points = points;
     }
 
-    public bool GetCompleted()
+    // Get and Set _completed
+    public void UpdateMarkedCompleted(bool completed)
     {
-        return _completed;
+        _completed = completed;
     }
 
-    public void MarkCompleted(bool completed)
+    public virtual void DisplayGoal()
     {
-        _completed = true;
+        string checkStatus = _completed ? "[✓]" : "[]";
+        Console.WriteLine($"{checkStatus} {_name}: {_description}");
     }
 
-    public virtual string ListGoal()
-    {
-        return $"{_name}: {_description} - Points: {_points} - Completed: {_completed}";
-    }
+    // Abstract Method Definitions:
 
-    public override string ToString()
-    {
-        return $"{_name}: {_description} - Points: {_points} - Completed: {_completed}";
-    }
-
-    public abstract string GetGoalType();
-    public abstract int RecordEvent();
-    public abstract void RunGoal();
+    // UpdateGoalType: Returns the type of goal
+    public abstract void UpdateGoalType(string goalType);
+    public abstract int UpdateGoal();
+    // public abstract void RunGoal();
 
 
-    // int _points;
-    // bool _completed;
-    // string _goal;
 }

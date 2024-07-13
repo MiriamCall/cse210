@@ -1,14 +1,21 @@
 class ChecklistGoal : Goal
 {
-     public override string GetGoalType()
+    // Constructor:
+    public ChecklistGoal(string name, string description, int points, bool completed) : base(name, description, points, completed)
     {
-        return "";
+        _goalType = "Checklist Goal";
     }
-    public override int RecordEvent()
+
+    public override void UpdateGoalType(string goalType)
     {
-        return 0;
+        _goalType = goalType;
     }
-    public override void RunGoal()
+
+    public override int UpdateGoal()
     {
+
+        return 1;
     }
+
+
 }

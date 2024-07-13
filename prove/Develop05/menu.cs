@@ -1,10 +1,12 @@
 class Menu
 {
+    private GoalTracker _goalTracker = new GoalTracker();
     private int choice = 0;
     public void DisplayMenu()
     {
         while (choice !=6)
         {
+            _goalTracker.DisplayPoints();
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
             Console.WriteLine("3. Save Goals");
@@ -31,7 +33,19 @@ class Menu
                         
                         break;
                     case 5:
+                        bool isValidGoalNumber = false;
+                        int goalNum = 0;
                         
+                        while (!isValidGoalNumber)
+                        {
+                            Console.Write("Which Goal did you accomplish? ");
+                            isValidGoalNumber = int.TryParse(Console.ReadLine(), out goalNum);
+                            if (!isValidGoalNumber)
+                            {
+                                Console.WriteLine("Invalid input. Please enter a valid number.");
+                            }
+                        }
+
                         break;
                     case 6:
                         // Quit
