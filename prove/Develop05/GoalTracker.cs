@@ -49,8 +49,18 @@ class GoalTracker
     }
 
     // SaveGoals: Saves the goals to a file
+    public void SaveGoals()
+    {
+        Console.WriteLine("Saving goals...");
+        Console.WriteLine("Haha... You tried to save but you haven't written the code to save yet :P ;)\n.");
+    }
 
     // LoadGoals: Loads the goals from a file
+    public void LoadGoals()
+    {
+        Console.WriteLine("Loading goals...");
+        Console.WriteLine("Haha... You tried to load but you haven't written the code to load yet :P ;)\n.");
+    }
 
     
 }

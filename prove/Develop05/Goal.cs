@@ -61,7 +61,7 @@ public abstract class Goal
         string checkStatus = _completed ? "[✓]" : "[]";
 
         // Displays the goal with a checkmark box, Name, and Description
-        Console.WriteLine($"{checkStatus} {_name}: {_description}");
+        Console.WriteLine($"{checkStatus} {_name}: ({_description})");
     }
 
     public void UpdateGoalName()
@@ -102,6 +102,5 @@ public abstract class Goal
     // UpdateGoalType: Returns the type of goal
     public abstract void UpdateGoalType(string goalType);
     public abstract int UpdateGoal();
-    // public abstract void RunGoal();
 
 }

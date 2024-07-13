@@ -10,7 +10,7 @@ class EternalGoal : Goal
     {
         _goalType = goalType;
     }
-        public override int UpdateGoal()
+    public override int UpdateGoal()
     {
 
         return 1;

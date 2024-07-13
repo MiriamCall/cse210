@@ -36,9 +36,11 @@ class Menu
                         break;
                     case 3:
                         // Save Goals
+                        _goalTracker.SaveGoals();
                         break;
                     case 4:
                         // Load Goals
+                        _goalTracker.LoadGoals();
                         break;
                     case 5:
                         // Record Event
@@ -91,11 +93,13 @@ class Menu
                 case 2:
                     // Create Eternal Goal
                     EternalGoal eternalGoal = new EternalGoal();
+                    _goalTracker.AddGoal(eternalGoal);
                     break;
 
                 case 3:
                     // Create Checklist Goal
                     ChecklistGoal checklistGoal = new ChecklistGoal();
+                    _goalTracker.AddGoal(checklistGoal);
                     break;
             }
         }  
