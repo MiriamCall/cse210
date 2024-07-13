@@ -1,0 +1,3 @@
+test| sfhaskhflk| 10| False | Simple Goal
+askdfl| sldkhfksjh| 30| True | Simple Goal
+drink water | drink water 10 times| 10| False | 100| 10| 1

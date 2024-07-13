@@ -1,4 +1,7 @@
-class GoalTracker
+using System.IO;
+using System.Text.Json;
+
+public class GoalTracker
 {
     // Member Variables:
 
@@ -49,18 +52,39 @@ class GoalTracker
     }
 
     // SaveGoals: Saves the goals to a file
-    public void SaveGoals()
+    // public void SaveGoals()
+    // {
+    //     Console.WriteLine("Saving goals...");
+    //     string filePath = "goals.txt";
+    //     using (StreamWriter writer = new StreamWriter(filePath))
+    //     {
+    //         foreach (Goal goal in _goals)
+    //         {
+    //             writer.WriteLine(goal.ToString());
+    //         }
+    //     }
+    //     Console.WriteLine("Goals saved.\n");
+    // }
+
+    // SaveGoals: Saves goals and total points to a JSON file
+    // Public properties to access private fields
+    // Method to get data for serialization
+    public object GetSerializableData()
     {
-        Console.WriteLine("Saving goals...");
-        Console.WriteLine("Haha... You tried to save but you haven't written the code to save yet :P ;)\n.");
+        return new
+        {
+            TotalPoints = _totalPoints,
+            Goals = _goals
+        };
     }
 
-    // LoadGoals: Loads the goals from a file
-    public void LoadGoals()
+    // Method to load data from deserialization
+    public void LoadFromSerializedData(JsonElement data)
     {
-        Console.WriteLine("Loading goals...");
-        Console.WriteLine("Haha... You tried to load but you haven't written the code to load yet :P ;)\n.");
+        _totalPoints = data.GetProperty("TotalPoints").GetInt32();
+        _goals = JsonSerializer.Deserialize<List<Goal>>(data.GetProperty("Goals").GetRawText());
     }
+    
 
     
 }

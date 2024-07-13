@@ -3,6 +3,7 @@ class Menu
 
     // Private New instance of GoalTracker
     private GoalTracker _goalTracker = new GoalTracker();
+    private PersistenceManager _persistenceManager = new PersistenceManager();
 
     // Private integer variable choice
     private int choice = 0;
@@ -36,11 +37,11 @@ class Menu
                         break;
                     case 3:
                         // Save Goals
-                        _goalTracker.SaveGoals();
+                        _persistenceManager.Save("goals.json", _goalTracker);
                         break;
                     case 4:
                         // Load Goals
-                        _goalTracker.LoadGoals();
+                        _persistenceManager.Load("goals.json", _goalTracker);
                         break;
                     case 5:
                         // Record Event

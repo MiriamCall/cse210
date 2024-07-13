@@ -1,0 +1,29 @@
+{
+  "TotalPoints": 510,
+  "Goals": [
+    {
+      "Type": "SimpleGoal",
+      "Name": "test",
+      "Description": "This is a test",
+      "Points": 10,
+      "Completed": false
+    },
+    {
+      "Type": "ChecklistGoal",
+      "Name": "drink water",
+      "Description": "drink 8 bottles of water",
+      "Points": 10,
+      "Completed": false,
+      "RequiredCount": 8,
+      "BonusPoints": 200,
+      "CurrentCount": 1
+    },
+    {
+      "Type": "SimpleGoal",
+      "Name": "smile",
+      "Description": "smile at Eli",
+      "Points": 500,
+      "Completed": true
+    }
+  ]
+}

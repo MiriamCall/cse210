@@ -13,6 +13,36 @@ class ChecklistGoal : Goal
         _goalType = "Checklist Goal";
     }
 
+    public ChecklistGoal(string name, string description, int points, int bonusPoints, int targetChecklistInputCount)
+    {
+        _name = name;
+        _description = description;
+        _points = points;
+        _completed = false;
+        _goalType = "Checklist Goal";
+        _bonusPoints = bonusPoints;
+        _targetChecklistInputCount = targetChecklistInputCount;
+        _currentChecklistCount = 0;
+    }
+
+
+    // For JSON Serialization:
+    // Properties to access private fields
+    public int BonusPoints
+    {
+        get { return _bonusPoints; }
+    }
+
+    public int RequiredCount
+    {
+        get { return _targetChecklistInputCount; }
+    }
+
+    public int CurrentCount
+    {
+        get { return _currentChecklistCount; }
+    }
+
 
     // Updates the goal type
     public override void UpdateGoalType(string goalType)
@@ -66,6 +96,11 @@ class ChecklistGoal : Goal
 
         // Displays the goal with a checkmark box, Name, and Description
         Console.WriteLine($"{checkStatus} {_name}: ({_description}) -- Currently completed: {_currentChecklistCount}/{_targetChecklistInputCount}");
+    }
+
+    public override string ToString()
+    {
+        return $"{_name}| {_description}| {_points}| {_completed} | {_bonusPoints}| {_targetChecklistInputCount}| {_currentChecklistCount}";
     }
 
     // Gets the goal data

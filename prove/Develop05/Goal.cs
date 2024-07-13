@@ -27,6 +27,33 @@ public abstract class Goal
         _completed = false;
     }
 
+    // For JSON Serialization:
+    // Properties to access the protected fields
+    public string Name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
+
+    public string Description
+    {
+        get { return _description; }
+        set { _description = value; }
+    }
+
+    public int Points
+    {
+        get { return _points; }
+        set { _points = value; }
+    }
+
+    public bool Completed
+    {
+        get { return _completed; }
+        set { _completed = value; }
+    }
+
+
     // Get and Set _name
     public void UpdateName(string name)
     {
@@ -89,6 +116,10 @@ public abstract class Goal
         int.TryParse(points, out _points);
     }
 
+    public override string ToString()
+    {
+        return $"{_name}| {_description}| {_points}| {_completed} | {_goalType}";
+    }
     public virtual void GetGoalData()
     {
         UpdateGoalName();
