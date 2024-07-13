@@ -1,9 +1,16 @@
 class Menu
 {
+
+    // Private New instance of GoalTracker
     private GoalTracker _goalTracker = new GoalTracker();
+
+    // Private integer variable choice
     private int choice = 0;
-    public void DisplayMenu()
+
+    // DisplayMenu: Displays the main menu
+    public void DisplayMainMenu()
     {
+        Console.Clear();
         while (choice !=6)
         {
             _goalTracker.DisplayPoints();
@@ -12,7 +19,7 @@ class Menu
             Console.WriteLine("3. Save Goals");
             Console.WriteLine("4. Load Goals");
             Console.WriteLine("5. Record Event");
-            Console.WriteLine("6. Quit");
+            Console.WriteLine("6. Quit\n");
 
             string input = Console.ReadLine();
             if(int.TryParse(input, out choice))
@@ -21,18 +28,20 @@ class Menu
                 {
                     case 1:
                         // Create New Goal
-                        DisplayCreateGoalMenu();
+                        DisplayCreateNewGoalMenu();
                         break;
                     case 2:
-                        
+                        // List Goals
+                        _goalTracker.DisplayGoals();
                         break;
                     case 3:
-                        
+                        // Save Goals
                         break;
                     case 4:
-                        
+                        // Load Goals
                         break;
                     case 5:
+                        // Record Event
                         bool isValidGoalNumber = false;
                         int goalNum = 0;
                         
@@ -44,8 +53,10 @@ class Menu
                             {
                                 Console.WriteLine("Invalid input. Please enter a valid number.");
                             }
+                            Console.WriteLine();
                         }
-
+                        Goal goal = _goalTracker.GetGoal(goalNum - 1);
+                        _goalTracker.RecordEvent(goal);
                         break;
                     case 6:
                         // Quit
@@ -55,62 +66,38 @@ class Menu
             }
         }
     }
-    public void DisplayCreateGoalMenu()
-{
-    int createGoalChoice = 0;
-    while (createGoalChoice !=4)
+    public void DisplayCreateNewGoalMenu()
     {
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
-        Console.WriteLine("3. Checklist Goal");
-        Console.WriteLine("4. Back");
-        Console.Write("What type of goal would you like to create? ");
+        Console.WriteLine("3. Checklist Goal\n");
 
+        Console.Write("What type of goal would you like to create? ");
         string userInput = Console.ReadLine();
+
+        int createGoalChoice = 0;
+        // If the user input is a valid integer parse it to createGoalChoice
         if (int.TryParse(userInput, out createGoalChoice))
         {
+            // Switch statement to determine which type of goal to create
             switch (createGoalChoice)
             {
+                // Create Simple Goal
                 case 1:
-                    // Create Simple Goal
-                    Console.Write("Enter the name of the goal: ");
-                    string simpleGoalName = Console.ReadLine();
-                    Console.Write("Enter the description of the goal: ");
-                    string simpleGoalDescription = Console.ReadLine();
-                    Console.Write("Enter the number of points for the goal: ");
-                    string simpleGoalPoints = Console.ReadLine();
-                    Console.Write("Is the goal completed? (true/false): ");
-                    string simpleGoalCompleted = Console.ReadLine();
-
-                    // _goal = new SimpleGoal(name, description, points, completed);
+                    SimpleGoal simpleGoal = new SimpleGoal();
+                    _goalTracker.AddGoal(simpleGoal);
                     break;
+
+                // Create Eternal Goal
                 case 2:
-                    // Create Eternal Goal
-                    Console.Write("Enter the name of the goal: ");
-                    string EternalGoalName = Console.ReadLine();
-                    Console.Write("Enter the description of the goal: ");
-                    string EternalGoalDescription = Console.ReadLine();
-                    Console.Write("Enter the number of points for the goal: ");
-                    string EternalGoalPoints = Console.ReadLine();
-
-                    // _goal = new EternalGoal(name, description, points, completed);
+                    EternalGoal eternalGoal = new EternalGoal();
                     break;
 
+                // Create Checklist Goal
                 case 3:
-                    // Create Checklist Goal
-                    Console.Write("Enter the name of the goal: ");
-                    string ChecklistGoalName = Console.ReadLine();
-                    Console.Write("Enter the description of the goal: ");
-                    string ChecklistGoalDescription = Console.ReadLine();
-                    Console.Write("Enter the number of points for the goal: ");
-                    string ChecklistGoalPoints = Console.ReadLine();
-                    Console.Write("Is the goal completed? (true/false): ");
-                    string ChecklistGoalCompleted = Console.ReadLine();
-
-                    // _goal = new ChecklistGoal(name, description, points, completed);
+                    ChecklistGoal checklistGoal = new ChecklistGoal();
                     break;
             }
-        }
+        }  
     }
-}
 }

@@ -1,8 +1,10 @@
 class SimpleGoal : Goal
 {
     // Constructor:
-    public SimpleGoal(string name, string description, int points, bool completed) : base(name, description, points, completed)
+
+    public SimpleGoal()
     {
+        GetGoalData();
         _goalType = "Simple Goal";
     }
 

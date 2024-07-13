@@ -57,9 +57,45 @@ public abstract class Goal
 
     public virtual void DisplayGoal()
     {
+        // Adds a checkmark if the goal is completed
         string checkStatus = _completed ? "[✓]" : "[]";
+
+        // Displays the goal with a checkmark box, Name, and Description
         Console.WriteLine($"{checkStatus} {_name}: {_description}");
     }
+
+    public void UpdateGoalName()
+    {
+        // Gets Goal Name
+        Console.Write("Enter the name of the goal: ");
+        string name = Console.ReadLine();
+        _name = name;
+    }
+
+
+    public void UpdateGoalDescription()
+    {
+        // Gets Goal Description
+        Console.Write("Enter the description of the goal: ");
+        string description = Console.ReadLine();
+        _description = description;
+    }
+
+    public void UpdateGoalPoints()
+    {
+        // Gets Goal Points
+        Console.Write("Enter the number of points for the goal: ");
+        string points = Console.ReadLine();
+        int.TryParse(points, out _points);
+    }
+
+    public virtual void GetGoalData()
+    {
+        UpdateGoalName();
+        UpdateGoalDescription();
+        UpdateGoalPoints();
+    }
+
 
     // Abstract Method Definitions:
 
@@ -67,6 +103,5 @@ public abstract class Goal
     public abstract void UpdateGoalType(string goalType);
     public abstract int UpdateGoal();
     // public abstract void RunGoal();
-
 
 }

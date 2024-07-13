@@ -42,11 +42,15 @@ class GoalTracker
         _goals.Add(goal);
     }
 
-    // GetGoalIndex: Returns the goal at the specified index
-    public Goal GetGoalIndex(int goalNum)
+    // GetGoal: Returns the goal at the specified 
+    public Goal GetGoal(int goalNum)
     {
         return _goals[goalNum];
     }
+
+    // SaveGoals: Saves the goals to a file
+
+    // LoadGoals: Loads the goals from a file
 
     
 }

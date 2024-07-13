@@ -1,8 +1,9 @@
 class EternalGoal : Goal
 {
     // Constructor:
-    public EternalGoal(string name, string description, int points, bool completed) : base(name, description, points, completed)
+    public EternalGoal()
     {
+        GetGoalData();
         _goalType = "Eternal Goal";
     }
     public override void UpdateGoalType(string goalType)
