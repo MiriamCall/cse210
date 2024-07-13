@@ -1,5 +1,5 @@
-// help in various places throughout the code from chatGPT
-
+// help in various places throughout the code from chatGPT, and Claude ai
+using System.Text.Json;
 public abstract class Goal
 {
     // Member Variables:
@@ -26,33 +26,6 @@ public abstract class Goal
         _points = 0;
         _completed = false;
     }
-
-    // For JSON Serialization:
-    // Properties to access the protected fields
-    public string Name
-    {
-        get { return _name; }
-        set { _name = value; }
-    }
-
-    public string Description
-    {
-        get { return _description; }
-        set { _description = value; }
-    }
-
-    public int Points
-    {
-        get { return _points; }
-        set { _points = value; }
-    }
-
-    public bool Completed
-    {
-        get { return _completed; }
-        set { _completed = value; }
-    }
-
 
     // Get and Set _name
     public void UpdateName(string name)
@@ -125,6 +98,29 @@ public abstract class Goal
         UpdateGoalName();
         UpdateGoalDescription();
         UpdateGoalPoints();
+    }
+
+     // Method to get data for serialization
+    public virtual object GetSerializableData()
+    {
+        return new
+        {
+            Type = _goalType,
+            Name = _name,
+            Description = _description,
+            Points = _points,
+            Completed = _completed
+        };
+    }
+
+    // Method to load data from deserialization
+    public virtual void LoadFromSerializedData(JsonElement data)
+    {
+        _goalType = data.GetProperty("Type").GetString();
+        _name = data.GetProperty("Name").GetString();
+        _description = data.GetProperty("Description").GetString();
+        _points = data.GetProperty("Points").GetInt32();
+        _completed = data.GetProperty("Completed").GetBoolean();
     }
 
 

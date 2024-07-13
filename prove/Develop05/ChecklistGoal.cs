@@ -1,3 +1,4 @@
+using System.Text.Json;
 class ChecklistGoal : Goal
 {
     private int _bonusPoints;
@@ -110,6 +111,31 @@ class ChecklistGoal : Goal
         UpdateGoalDescription();
         UpdateGoalPoints();
         UpdateChecklistGoalBonus();
+    }
+
+    // Add these methods for serialization and deserialization
+    public override object GetSerializableData()
+    {
+        var baseData = base.GetSerializableData() as dynamic;
+        return new
+        {
+            baseData.Type,
+            baseData.Name,
+            baseData.Description,
+            baseData.Points,
+            baseData.Completed,
+            BonusPoints = _bonusPoints,
+            RequiredCount = _targetChecklistInputCount,
+            CurrentCount = _currentChecklistCount
+        };
+    }
+
+    public override void LoadFromSerializedData(JsonElement data)
+    {
+        base.LoadFromSerializedData(data);
+        _bonusPoints = data.GetProperty("BonusPoints").GetInt32();
+        _targetChecklistInputCount = data.GetProperty("RequiredCount").GetInt32();
+        _currentChecklistCount = data.GetProperty("CurrentCount").GetInt32();
     }
 
 }
