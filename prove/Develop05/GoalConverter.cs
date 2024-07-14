@@ -64,6 +64,7 @@ public class GoalConverter : JsonConverter<Goal>
                 "Simple Goal" => new SimpleGoal(),
                 "Eternal Goal" => new EternalGoal(),
                 "Checklist Goal" => new ChecklistGoal(),
+                "Negative Goal" => new NegativeGoal(),
                 _ => throw new JsonException($"Unknown goal type: {type}")
             };
 

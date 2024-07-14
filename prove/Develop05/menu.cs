@@ -21,7 +21,7 @@ class Menu
             Console.WriteLine("3. Save Goals");
             Console.WriteLine("4. Load Goals");
             Console.WriteLine("5. Record Event");
-            Console.WriteLine("6. Add Negative Goal");
+            Console.WriteLine("6. Clear List");
             Console.WriteLine("7. Quit\n");
 
             string input = Console.ReadLine();
@@ -68,10 +68,8 @@ class Menu
                         break;
 
                     case 6:
-                        // Add Negative Goal
-                        NegativeGoal negativeGoal = new NegativeGoal();
-                        negativeGoal.InitializeFromUserInput();
-                        _goalTracker.AddGoal(negativeGoal);
+                        // Clear List
+                        _goalTracker.ClearGoals();
                         break;
                     case 7:
                         // Quit
@@ -86,6 +84,7 @@ class Menu
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal\n");
+        Console.WriteLine("4. Add Negative Goal");
 
         Console.Write("What type of goal would you like to create? ");
         string userInput = Console.ReadLine();
@@ -116,6 +115,12 @@ class Menu
                     ChecklistGoal checklistGoal = new ChecklistGoal();
                     checklistGoal.InitializeFromUserInput();
                     _goalTracker.AddGoal(checklistGoal);
+                    break;
+                case 4:
+                    // Add Negative Goal
+                    NegativeGoal negativeGoal = new NegativeGoal();
+                    negativeGoal.InitializeFromUserInput();
+                    _goalTracker.AddGoal(negativeGoal);
                     break;
             }
         }  

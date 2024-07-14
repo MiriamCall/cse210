@@ -34,11 +34,17 @@ public class GoalTracker
     public void DisplayGoals()
     {   
         Console.WriteLine("\nGoals:");
+        // If goals list is empty display message
+        if (_goals.Count == 0)
+        {
+            Console.WriteLine("There are no goals in the list.");
+        }
         foreach (Goal goal in _goals)
-        {   
+        {
             int goalIndex = _goals.IndexOf(goal) + 1;
             Console.Write($"{goalIndex}. ");
             goal.DisplayGoal();
+            
         }
     }
 
@@ -54,20 +60,11 @@ public class GoalTracker
         return _goals[goalNum];
     }
 
-    // SaveGoals: Saves the goals to a file
-    // public void SaveGoals()
-    // {
-    //     Console.WriteLine("Saving goals...");
-    //     string filePath = "goals.txt";
-    //     using (StreamWriter writer = new StreamWriter(filePath))
-    //     {
-    //         foreach (Goal goal in _goals)
-    //         {
-    //             writer.WriteLine(goal.ToString());
-    //         }
-    //     }
-    //     Console.WriteLine("Goals saved.\n");
-    // }
+    public void ClearGoals()
+    {
+        _goals.Clear();
+        Console.WriteLine("All goals cleared successfully.");
+    }
 
     // SaveGoals: Saves goals and total points to a JSON file
     // Public properties to access private fields
