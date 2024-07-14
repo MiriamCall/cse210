@@ -18,9 +18,14 @@ class EternalGoal : Goal
     {
         _goalType = goalType;
     }
+
+    // Updates the goal 
     public override int UpdateGoal()
     {
-
-        return 1;
+        // Eternal Goals can never be completed
+        _completed = false;
+        
+        // Returns the points
+        return _points;
     }
 }

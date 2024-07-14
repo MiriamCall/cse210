@@ -56,7 +56,7 @@ public abstract class Goal
     public virtual void DisplayGoal()
     {
         // Adds a checkmark if the goal is completed
-        string checkStatus = _completed ? "[✓]" : "[]";
+        string checkStatus = _completed ? "[✓]" : "[ ]";
 
         // Displays the goal with a checkmark box, Name, and Description
         Console.WriteLine($"{checkStatus} {_name}: ({_description})");

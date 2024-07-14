@@ -1,18 +1,32 @@
 {
-  "TotalPoints": 20,
+  "TotalPoints": 21,
   "Goals": [
     {
       "Type": "Simple Goal",
-      "Name": "test",
-      "Description": "testing",
+      "Name": "Smile",
+      "Description": "Smile at Elias",
       "Points": 10,
       "Completed": true
     },
     {
-      "Type": "Checklist Goal",
-      "Name": "Pushups",
-      "Description": "Do 10 pushups",
+      "Type": "Eternal Goal",
+      "Name": "Read the scriptures daily",
+      "Description": "Read the scriptures everyday",
       "Points": 10,
+      "Completed": false
+    },
+    {
+      "Type": "Eternal Goal",
+      "Name": "Pray",
+      "Description": "Pray everyday",
+      "Points": 10,
+      "Completed": false
+    },
+    {
+      "Type": "Checklist Goal",
+      "Name": "Exercise",
+      "Description": "Do 10 Pushups",
+      "Points": 1,
       "Completed": false,
       "BonusPoints": 100,
       "RequiredCount": 10,
