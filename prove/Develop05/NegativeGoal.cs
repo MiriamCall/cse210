@@ -1,5 +1,6 @@
 class NegativeGoal : Goal
 {
+    private int _currentCount = 0;
     // Constructor:
     public NegativeGoal()
     {
@@ -22,7 +23,22 @@ class NegativeGoal : Goal
 
     public override int UpdateGoal()
     {
-        _completed = true;
+        // Keep count of how many times the goal has been updated
+        _currentCount++;
         return - _points;
+    }
+
+    public void DisplayNegativeCount()
+    {
+        Console.WriteLine($"{_currentCount}");
+    }
+
+    public virtual void DisplayGoal()
+    {
+        // Adds a checkmark if the goal is completed
+        string checkStatus = _completed ? "[✓]" : "[ ]";
+
+        // Displays the goal with a checkmark box, Name, and Description
+        Console.WriteLine($"{checkStatus} {_name}: ({_description}) -- {_name} has been used {_currentCount} times");
     }
 }

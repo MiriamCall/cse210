@@ -12,7 +12,7 @@ class Menu
     public void DisplayMainMenu()
     {
         Console.Clear();
-        while (choice !=6)
+        while (choice !=7)
         {
             _goalTracker.DisplayPoints();
             Console.WriteLine("Main Menu:");

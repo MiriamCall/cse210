@@ -27,7 +27,7 @@ public class GoalTracker
     // DisplayPoints: Displays the total points
     public void DisplayPoints()
     {
-        Console.WriteLine($"You have {_totalPoints} points.\n");
+        Console.WriteLine($"\nYou have {_totalPoints} points.\n");
     }
 
     // DisplayGoals: Displays all goals in the list of goals

@@ -1,5 +1,5 @@
 {
-  "TotalPoints": 21,
+  "TotalPoints": 31,
   "Goals": [
     {
       "Type": "Simple Goal",
@@ -44,7 +44,7 @@
       "Name": "Clean the house",
       "Description": "Clean the House",
       "Points": 10,
-      "Completed": false
+      "Completed": true
     },
     {
       "Type": "Simple Goal",
@@ -57,6 +57,13 @@
       "Type": "Simple Goal",
       "Name": "Wake up early",
       "Description": "Wake up early for 30 Days",
+      "Points": 10,
+      "Completed": false
+    },
+    {
+      "Type": "Negative Goal",
+      "Name": "Swearing",
+      "Description": "Bad language is not to be spoken",
       "Points": 10,
       "Completed": false
     }
