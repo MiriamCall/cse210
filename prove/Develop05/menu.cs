@@ -21,7 +21,8 @@ class Menu
             Console.WriteLine("3. Save Goals");
             Console.WriteLine("4. Load Goals");
             Console.WriteLine("5. Record Event");
-            Console.WriteLine("6. Quit\n");
+            Console.WriteLine("6. Add Negative Goal");
+            Console.WriteLine("7. Quit\n");
 
             string input = Console.ReadLine();
             if(int.TryParse(input, out choice))
@@ -65,7 +66,14 @@ class Menu
                         Goal goal = _goalTracker.GetGoal(goalNum - 1);
                         _goalTracker.RecordEvent(goal);
                         break;
+
                     case 6:
+                        // Add Negative Goal
+                        NegativeGoal negativeGoal = new NegativeGoal();
+                        negativeGoal.InitializeFromUserInput();
+                        _goalTracker.AddGoal(negativeGoal);
+                        break;
+                    case 7:
                         // Quit
                         Environment.Exit(0);
                         break;

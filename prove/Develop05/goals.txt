@@ -1,3 +1,13 @@
 test| sfhaskhflk| 10| False | Simple Goal
 askdfl| sldkhfksjh| 30| True | Simple Goal
 drink water | drink water 10 times| 10| False | 100| 10| 1
+
+
+[√] Smile: (Smile at Elias)
+[ ] Read the scriptures daily: (Read the scriptures everyday)
+[ ] Pray: (Pray everyday)
+[ ] Exercise: (Do 10 Pushups) -- Currently completed: 1/10
+[ ] Hug Evelyn: (Hug Evelyn)
+[ ] Clean the house: (Clean the House)
+[ ] Dishes: (Do the dishes)
+[ ] Wake up early: (wake up early for 30 Days) -- Currently completed: 0/30
