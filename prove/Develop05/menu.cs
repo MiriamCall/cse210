@@ -15,6 +15,7 @@ class Menu
         while (choice !=6)
         {
             _goalTracker.DisplayPoints();
+            Console.WriteLine("Main Menu:");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
             Console.WriteLine("3. Save Goals");
@@ -34,6 +35,9 @@ class Menu
                     case 2:
                         // List Goals
                         _goalTracker.DisplayGoals();
+
+                        // Time delay to allow user to read the goals
+                        System.Threading.Thread.Sleep(2000);
                         break;
                     case 3:
                         // Save Goals

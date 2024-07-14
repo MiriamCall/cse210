@@ -9,14 +9,14 @@
       "Completed": true
     },
     {
-      "Type": "Simple Goal",
+      "Type": "Eternal Goal",
       "Name": "Read the scriptures daily",
       "Description": "Read the scriptures everyday",
       "Points": 10,
       "Completed": false
     },
     {
-      "Type": "Simple Goal",
+      "Type": "Eternal Goal",
       "Name": "Pray",
       "Description": "Pray everyday",
       "Points": 10,
@@ -31,34 +31,6 @@
       "BonusPoints": 100,
       "RequiredCount": 10,
       "CurrentCount": 1
-    },
-    {
-      "Type": "Simple Goal",
-      "Name": "Hug Evelyn",
-      "Description": "Hug Evelyn",
-      "Points": 10,
-      "Completed": false
-    },
-    {
-      "Type": "Simple Goal",
-      "Name": "Clean the house",
-      "Description": "Clean the House",
-      "Points": 10,
-      "Completed": false
-    },
-    {
-      "Type": "Simple Goal",
-      "Name": "Dishes",
-      "Description": "Do the dishes",
-      "Points": 10,
-      "Completed": false
-    },
-    {
-      "Type": "Simple Goal",
-      "Name": "Wake up early",
-      "Description": "Wake up early for 30 Days",
-      "Points": 10,
-      "Completed": false
     }
   ]
 }

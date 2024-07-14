@@ -32,9 +32,12 @@ public class GoalTracker
 
     // DisplayGoals: Displays all goals in the list of goals
     public void DisplayGoals()
-    {
+    {   
+        Console.WriteLine("\nGoals:");
         foreach (Goal goal in _goals)
-        {
+        {   
+            int goalIndex = _goals.IndexOf(goal) + 1;
+            Console.Write($"{goalIndex}. ");
             goal.DisplayGoal();
         }
     }
