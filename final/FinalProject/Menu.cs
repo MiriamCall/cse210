@@ -70,7 +70,8 @@ class Menu
                     bottleFeedingLog.RecordBottleFeeding();
                     break;
                 case 3:
-                    // RecordSolidFood();
+                    SolidFeedingLog solidFeedingLog = new SolidFeedingLog();
+                    solidFeedingLog.RecordSolidFeeding();
                     break;
                 case 4:
                     break;
