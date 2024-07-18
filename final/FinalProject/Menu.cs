@@ -4,12 +4,14 @@ class Menu
 
     public void DisplayMenu(){
         Console.Clear();
-        while (choice !=4)
+        while (choice !=6)
         {
             Console.WriteLine("1. Record Feeding");
             Console.WriteLine("2. Record Sleep");
             Console.WriteLine("3. Record Medication");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("4. Save logs");
+            Console.WriteLine("5. Load logs");
+            Console.WriteLine("6. Exit");
 
             string input = Console.ReadLine();
             if(int.TryParse(input, out choice))
@@ -27,6 +29,12 @@ class Menu
                         MedicationMenu();
                         break;
                     case 4:
+                        // SaveLogs();
+                        break;
+                    case 5:
+                        // LoadLogs();
+                        break;
+                    case 6:
                         break;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
