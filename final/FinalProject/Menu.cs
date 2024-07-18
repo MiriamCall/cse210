@@ -18,13 +18,13 @@ class Menu
                 {
                     case 1:
 
-                        // RecordFeeding();
+                        FeedingMenu();
                         break;
                     case 2:
-                        // RecordSleep();
+                        SleepMenu();
                         break;
                     case 3:
-                        // RecordMedication();
+                        MedicationMenu();
                         break;
                     case 4:
                         break;
@@ -42,9 +42,9 @@ class Menu
 
     public void FeedingMenu()
     {
-        Console.WriteLine("1. Record Nursing");
-        Console.WriteLine("2. Record Bottle Feeding");
-        Console.WriteLine("3. Record Solid Food");
+        Console.WriteLine("1. Nursing");
+        Console.WriteLine("2. Bottle Feeding");
+        Console.WriteLine("3. Solid Food");
         Console.WriteLine("4. Back");
 
         string input = Console.ReadLine();
@@ -53,7 +53,10 @@ class Menu
             switch(choice)
             {
                 case 1:
-                    // RecordNursing();
+                    BreastFeedingLog breastFeedingLog = new BreastFeedingLog();
+                    breastFeedingLog.RecordBreastFeeding();
+                    
+                    // RecordBreastFeeding();
                     break;
                 case 2:
                     // RecordBottleFeeding();
@@ -76,7 +79,7 @@ class Menu
 
     public void SleepMenu()
     {
-        Console.WriteLine("1. Record Nap");
+        Console.WriteLine("1. Record Nap Time");
         Console.WriteLine("2. Record Night Sleep");
         Console.WriteLine("3. Back");
 
