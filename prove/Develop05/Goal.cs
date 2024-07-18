@@ -14,7 +14,7 @@ public abstract class Goal
     // Default Constructor:
     public Goal()
     {
-
+        
     }
     public Goal(string name, string description, int points, bool completed)
     {

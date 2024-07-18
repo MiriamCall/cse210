@@ -15,11 +15,23 @@ class FeedingLog
         Console.WriteLine("End Time: " + endTime);
     }
 
-    // public GetStartTime()
+    public DateTime GetStartTime()
+    {
+        return startTime;
+    }
 
-    // public SetStartTime()
+    public void SetStartTime(DateTime startTime)
+    {
+        startTime = DateTime.Now;
+    }
 
-    // public GetEndTime()
+    public DateTime GetEndTime()
+    {
+        return endTime;
+    }
 
-    // public SetEndTime()
+    public void SetEndTime()
+    {
+        endTime = DateTime.Now;
+    }
 }
