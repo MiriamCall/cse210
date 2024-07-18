@@ -55,11 +55,11 @@ class Menu
                 case 1:
                     BreastFeedingLog breastFeedingLog = new BreastFeedingLog();
                     breastFeedingLog.RecordBreastFeeding();
-                    
-                    // RecordBreastFeeding();
+
                     break;
                 case 2:
-                    // RecordBottleFeeding();
+                    BottleFeedingLog bottleFeedingLog = new BottleFeedingLog();
+                    bottleFeedingLog.RecordBottleFeeding();
                     break;
                 case 3:
                     // RecordSolidFood();
