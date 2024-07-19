@@ -29,10 +29,10 @@ class Menu
                         MedicationMenu();
                         break;
                     case 4:
-                        // SaveLogs();
+                        
                         break;
                     case 5:
-                        // LoadLogs();
+                        
                         break;
                     case 6:
                         break;

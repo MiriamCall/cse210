@@ -34,4 +34,21 @@ class FeedingLog
     {
         endTime = DateTime.Now;
     }
+
+    // Convert FeedingLog details to a delimited string
+    public override string ToString()
+    {
+        return $"{startTime}|{endTime}";
+    }
+
+    // Parse a delimited string back into a FeedingLog object
+    public static FeedingLog Parse(string logString)
+    {
+        string[] parts = logString.Split('|');
+        return new FeedingLog
+        {
+            startTime = DateTime.Parse(parts[0]),
+            endTime = DateTime.Parse(parts[1])
+        };
+    }
 }
