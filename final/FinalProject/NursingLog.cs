@@ -15,9 +15,9 @@ class NursingLog : FeedingLog
         Console.WriteLine("\n-----------------------------------------");
         Console.WriteLine($"{_logName}:");
         Console.WriteLine($"Timestamp: {_timeStamp}");
-        Console.WriteLine($"\tLeft Breast Duration: {leftBreastDuration}");
-        Console.WriteLine($"\tRight Breast Duration: {rightBreastDuration}");
-        Console.WriteLine($"\tTotal Duration:  {_duration}");
+        Console.WriteLine($"Left Breast Duration: {leftBreastDuration}");
+        Console.WriteLine($"Right Breast Duration: {rightBreastDuration}");
+        Console.WriteLine($"Total Duration:  {_duration}");
         Console.WriteLine("-----------------------------------------\n");
     }
 

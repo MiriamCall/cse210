@@ -4,7 +4,7 @@ abstract class FeedingLog
 
     protected string _logName;
 
-    protected DateTime _timeStamp;
+    protected DateTime _timeStamp = DateTime.Now;
 
     public FeedingLog()
     {

@@ -58,7 +58,18 @@ class SolidFeedingLog : FeedingLog
                 if (double.TryParse(input, out double _foodAmount))
                 {
                     SetFoodAmount(_foodAmount);
-                    valid = true;
+
+                    Console.WriteLine("Enter feeding duration in minutes: ");
+                    input = Console.ReadLine();
+                    if (int.TryParse(input, out int duration))
+                    {
+                        SetDuration(duration);
+                        valid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input for duration. Please try again.");
+                    }
                 }
                 else
                 {
