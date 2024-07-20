@@ -1,54 +1,40 @@
-class FeedingLog
+abstract class FeedingLog
 {
-    private DateTime startTime;
-    private DateTime endTime;
+    protected int _duration;
 
     public FeedingLog()
     {
-        startTime = DateTime.Now;
-        endTime = DateTime.Now;
+        _duration = 0;
     }
     public void DisplayFeedingLog()
     {
         Console.WriteLine("Feeding Log");
-        Console.WriteLine("Start Time: " + startTime);
-        Console.WriteLine("End Time: " + endTime);
+        Console.WriteLine($"Duration:  {_duration}");
+
     }
 
-    public DateTime GetStartTime()
+    public int GetDuration()
     {
-        return startTime;
+        return _duration;
     }
 
-    public void SetStartTime(DateTime startTime)
+    public void SetDuration(int duration)
     {
-        startTime = DateTime.Now;
+        _duration = duration;
     }
 
-    public DateTime GetEndTime()
+    public static FeedingLog CreateLog(string logData)
     {
-        return endTime;
-    }
-
-    public void SetEndTime()
-    {
-        endTime = DateTime.Now;
-    }
-
-    // Convert FeedingLog details to a delimited string
-    public override string ToString()
-    {
-        return $"{startTime}|{endTime}";
-    }
-
-    // Parse a delimited string back into a FeedingLog object
-    public static FeedingLog Parse(string logString)
-    {
-        string[] parts = logString.Split('|');
-        return new FeedingLog
+        string[] parts = logData.Split('|');
+        return parts[0] switch
         {
-            startTime = DateTime.Parse(parts[0]),
-            endTime = DateTime.Parse(parts[1])
+            "Nursing" => new NursingLog().Parse(logData),
+            "Bottle" => new BottleFeedingLog().Parse(logData),
+            "Solid" => new SolidFeedingLog().Parse(logData),
+            _ => throw new Exception("Unknown log type")
         };
     }
+
+    public abstract override string ToString();
+    public abstract FeedingLog Parse(string logData);
 }

@@ -18,9 +18,23 @@ class TrackingLogs
         }
     }
 
-     public void DisplayLogs()
+    public void DisplayLogs()
     {
         DisplayFeedingLogs();
     }
 
+    public void AddFeedingLog(FeedingLog log)
+    {
+        _feedingLogs.Add(log);
+    }
+
+    public List<FeedingLog> GetFeedingLogs()
+    {
+        return _feedingLogs;
+    }
+
+    public void SetFeedingLogs(List<FeedingLog> feedingLogs)
+    {
+        _feedingLogs = feedingLogs;
+    }
 }

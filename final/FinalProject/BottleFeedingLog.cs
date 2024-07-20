@@ -1,70 +1,95 @@
 class BottleFeedingLog : FeedingLog
 {
-    private int bottleAmount;
-    private string milkType;
-    private int feedingDuration;
+    private int _bottleAmount;
+    private string _milkType;
 
     public BottleFeedingLog()
     {
-        bottleAmount = 0;
-        milkType = "";
-        feedingDuration = 0;
+        _bottleAmount = 0;
+        _milkType = "";
     }
 
     
 
     public void DisplayBottleFeedingLog()
     {
-        Console.WriteLine("Bottle Feeding Log");
-        Console.WriteLine("Start Time: " + GetStartTime());
-        Console.WriteLine("End Time: " + GetEndTime());
-        Console.WriteLine("Bottle Amount: " + bottleAmount);
-        Console.WriteLine("Milk Type: " + milkType);
+        Console.WriteLine($"Bottle Feeding Log:\n Duration: {_duration}\n Amount of {_milkType}: {_bottleAmount}");
     }
 
     public int GetBottleAmount()
     {
-        return bottleAmount;
+        return _bottleAmount;
     }
 
     public void SetBottleAmount(int bottleAmount)
     {
-        this.bottleAmount = bottleAmount;
+        _bottleAmount = bottleAmount;
     }
 
-    public int GetFeedingDuration()
+    public string GetMilkType()
     {
-        return feedingDuration;
+        return _milkType;
     }
-    public void SetFeedingDuration(int feedingDuration)
+
+    public void SetMilkType(string milkType)
     {
-        this.feedingDuration = feedingDuration;
+        _milkType = milkType;
     }
 
     public void RecordBottleFeeding()
     {
-        SetStartTime(DateTime.Now);
-        Console.WriteLine("Enter bottle amount in oz: ");
-        string input = Console.ReadLine();
-        if (int.TryParse(input, out bottleAmount))
+        bool valid = false;
+        while (!valid)
         {
-            Console.WriteLine("Enter milk type: ");
-            milkType = Console.ReadLine();
-            Console.WriteLine("Enter feeding duration in minutes: ");
-            input = Console.ReadLine();
-            if (int.TryParse(input, out feedingDuration))
+            Console.WriteLine("Enter bottle amount in oz: ");
+            string input = Console.ReadLine();
+            if (int.TryParse(input, out int bottleAmount))
             {
-                SetEndTime();
+                SetBottleAmount(bottleAmount);
+
+                Console.WriteLine("Enter milk type: ");
+                string milkType = Console.ReadLine();
+                if (!string.IsNullOrEmpty(milkType))
+                {
+                    SetMilkType(milkType);
+
+                    Console.WriteLine("Enter feeding duration in minutes: ");
+                    input = Console.ReadLine();
+                    if (int.TryParse(input, out int duration))
+                    {
+                        SetDuration(duration);
+                        valid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input for feeding duration. Please try again.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input for milk type. Please try again.");
+                }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please try again.");
+                Console.WriteLine("Invalid input for bottle amount. Please try again.");
             }
         }
-        else
-        {
-            Console.WriteLine("Invalid input. Please try again.");
-        }
+    }
 
+
+    public override string ToString()
+    {
+        return $"Bottle Feeding Log|{_duration}|{_bottleAmount}|{_milkType}";
+    }
+    public override FeedingLog Parse(string logString)
+    {
+        string[] parts = logString.Split('|');
+        return new BottleFeedingLog
+        {
+            _duration = int.Parse(parts[0]),
+            _bottleAmount = int.Parse(parts[1]),
+            _milkType = parts[2]
+        };
     }
 }

@@ -1,13 +1,15 @@
 class Menu
 {
     private int choice = 0;
+    private FileHandler _fileHandler = new FileHandler();
+    private TrackingLogs _trackingLogs = new TrackingLogs();
 
     public void DisplayMenu(){
         Console.Clear();
         while (choice !=6)
         {
             Console.WriteLine("1. Record Feeding");
-            Console.WriteLine("2. Record Sleep");
+            Console.WriteLine("2. Display Logs");
             Console.WriteLine("3. Record Medication");
             Console.WriteLine("4. Save logs");
             Console.WriteLine("5. Load logs");
@@ -23,18 +25,22 @@ class Menu
                         FeedingMenu();
                         break;
                     case 2:
-                        SleepMenu();
+                        _trackingLogs.DisplayLogs();
+                        // SleepMenu();
                         break;
                     case 3:
                         MedicationMenu();
                         break;
                     case 4:
-                        
+                        List<FeedingLog> feedingLogs = _trackingLogs.GetFeedingLogs();
+                        FileHandler.SaveLogsToFile("FeedingLogs.txt", feedingLogs);
                         break;
                     case 5:
-                        
+                        List<FeedingLog> loadedFeedingLogs = FileHandler.LoadLogsFromFile("FeedingLogs.txt");
+                        _trackingLogs.SetFeedingLogs(loadedFeedingLogs);
                         break;
                     case 6:
+                        Console.WriteLine("Thank you for using the Baby Tracker. Have a nice day!");
                         break;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
@@ -61,17 +67,19 @@ class Menu
             switch(choice)
             {
                 case 1:
-                    BreastFeedingLog breastFeedingLog = new BreastFeedingLog();
-                    breastFeedingLog.RecordBreastFeeding();
-
+                    NursingLog nursingLog = new NursingLog();
+                    nursingLog.RecordNursing();
+                    _trackingLogs.AddFeedingLog(nursingLog);
                     break;
                 case 2:
                     BottleFeedingLog bottleFeedingLog = new BottleFeedingLog();
                     bottleFeedingLog.RecordBottleFeeding();
+                    _trackingLogs.AddFeedingLog(bottleFeedingLog);
                     break;
                 case 3:
                     SolidFeedingLog solidFeedingLog = new SolidFeedingLog();
                     solidFeedingLog.RecordSolidFeeding();
+                    _trackingLogs.AddFeedingLog(solidFeedingLog);
                     break;
                 case 4:
                     break;
