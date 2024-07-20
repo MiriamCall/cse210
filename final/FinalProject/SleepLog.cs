@@ -7,7 +7,6 @@ class SleepLog : Log
     {
         _logName = "Sleep Log";
         _sleepType = "";
-        _minutes = false;
     }
 
     public override void DisplayLog()
