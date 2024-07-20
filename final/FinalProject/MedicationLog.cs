@@ -63,7 +63,7 @@ class MedicationLog : Log
                     if (int.TryParse(input, out int duration))
                     {
                         // Convert hours to minutes for duration
-                        SetDuration(duration * 60);
+                        SetDuration(duration);
                         valid = true;
                     }
                     else

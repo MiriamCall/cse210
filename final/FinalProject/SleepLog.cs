@@ -65,16 +65,16 @@ class SleepLog : Log
                         SetDuration(hours * 60);
                         _hours = hours;
                         valid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter y or n.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter y or n.");
+                    Console.WriteLine("Invalid input. Please enter a sleep type.");
                 }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a sleep type.");
-            }
             }
         }
     }
@@ -82,7 +82,7 @@ class SleepLog : Log
 
     public override string ToString()
     {
-        return $"{_logName}|{_timeStamp}|{_duration}";
+        return $"{_logName}|{_timeStamp}|{_duration}{_sleepType}";
     }
 
     public override Log Parse(string logString)
