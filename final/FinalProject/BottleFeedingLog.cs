@@ -10,12 +10,11 @@ class BottleFeedingLog : FeedingLog
         _logName = "Bottle Feeding Log";
     }
 
-    
-
     public override void DisplayLog()
     {
         Console.WriteLine("\n-----------------------------------------");
         Console.WriteLine($"{_logName}:");
+        Console.WriteLine($"Timestamp: {_timeStamp}");
         Console.WriteLine($"Duration: {_duration}");
         Console.WriteLine($"Amount of {_milkType}: {_bottleAmount}");
         Console.WriteLine("-----------------------------------------\n");

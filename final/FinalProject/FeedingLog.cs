@@ -4,6 +4,8 @@ abstract class FeedingLog
 
     protected string _logName;
 
+    protected DateTime _timeStamp;
+
     public FeedingLog()
     {
         _duration = 0;
@@ -11,9 +13,11 @@ abstract class FeedingLog
     }
     public virtual void DisplayLog()
     {
-        Console.WriteLine("Feeding Log");
+        Console.WriteLine("\n-----------------------------------------");
+        Console.WriteLine($"{_logName}:");
+        Console.WriteLine($"Timestamp: {_timeStamp}");
         Console.WriteLine($"Duration:  {_duration}");
-
+        Console.WriteLine("\n-----------------------------------------");
     }
 
     public int GetDuration()

@@ -15,6 +15,7 @@ class SolidFeedingLog : FeedingLog
     {
         Console.WriteLine("\n-----------------------------------------");
         Console.WriteLine($"{_logName}:");
+        Console.WriteLine($"Timestamp: {_timeStamp}");
         Console.WriteLine($"Duration: {_duration}");
         Console.WriteLine($"Food Type: {_foodType}");
         Console.WriteLine($"Food Amount in cups: {_foodAmount}");
