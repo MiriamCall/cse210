@@ -15,8 +15,8 @@ class BottleFeedingLog : FeedingLog
         Console.WriteLine("\n-----------------------------------------");
         Console.WriteLine($"{_logName}:");
         Console.WriteLine($"Timestamp: {_timeStamp}");
-        Console.WriteLine($"Duration: {_duration}");
-        Console.WriteLine($"Amount of {_milkType}: {_bottleAmount}");
+        Console.WriteLine($"Duration: {_duration} minutes");
+        Console.WriteLine($"Amount of {_milkType}: {_bottleAmount} oz");
         Console.WriteLine("-----------------------------------------\n");
     }
 
@@ -84,16 +84,18 @@ class BottleFeedingLog : FeedingLog
 
     public override string ToString()
     {
-        return $"{_logName}|{_duration}|{_bottleAmount}|{_milkType}";
+        return $"{_logName}|{_timeStamp}|{_duration}|{_bottleAmount}|{_milkType}";
     }
     public override FeedingLog Parse(string logString)
     {
         string[] parts = logString.Split('|');
         return new BottleFeedingLog
         {
-            _duration = int.Parse(parts[1]),
-            _bottleAmount = int.Parse(parts[2]),
-            _milkType = parts[3]
+            _logName = parts[0],
+            _timeStamp = DateTime.Parse(parts[1]),
+            _duration = int.Parse(parts[2]),
+            _bottleAmount = int.Parse(parts[3]),
+            _milkType = parts[4]
         };
     }
 }

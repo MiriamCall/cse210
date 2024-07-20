@@ -15,9 +15,9 @@ class NursingLog : FeedingLog
         Console.WriteLine("\n-----------------------------------------");
         Console.WriteLine($"{_logName}:");
         Console.WriteLine($"Timestamp: {_timeStamp}");
-        Console.WriteLine($"Left Breast Duration: {leftBreastDuration}");
-        Console.WriteLine($"Right Breast Duration: {rightBreastDuration}");
-        Console.WriteLine($"Total Duration:  {_duration}");
+        Console.WriteLine($"Left Breast Duration: {leftBreastDuration} minutes");
+        Console.WriteLine($"Right Breast Duration: {rightBreastDuration} minutes");
+        Console.WriteLine($"Total Duration:  {_duration} minutes");
         Console.WriteLine("-----------------------------------------\n");
     }
 
@@ -74,7 +74,7 @@ class NursingLog : FeedingLog
 
     public override string ToString()
     {
-        return $"{_logName}|{_duration}|{leftBreastDuration}|{rightBreastDuration}";
+        return $"{_logName}|{_timeStamp}|{_duration}|{leftBreastDuration}|{rightBreastDuration}";
     }
 
     public override FeedingLog Parse(string logString)
@@ -82,9 +82,11 @@ class NursingLog : FeedingLog
         string[] parts = logString.Split('|');
         return new NursingLog
         {
-            _duration = int.Parse(parts[1]),
-            leftBreastDuration = int.Parse(parts[2]),
-            rightBreastDuration = int.Parse(parts[3])
+            _logName = parts[0],
+            _timeStamp = DateTime.Parse(parts[1]),
+            _duration = int.Parse(parts[2]),
+            leftBreastDuration = int.Parse(parts[3]),
+            rightBreastDuration = int.Parse(parts[4])
         };
     }
 }
