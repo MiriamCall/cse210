@@ -2,11 +2,14 @@ abstract class FeedingLog
 {
     protected int _duration;
 
+    protected string _logName;
+
     public FeedingLog()
     {
         _duration = 0;
+        _logName = "";
     }
-    public void DisplayFeedingLog()
+    public virtual void DisplayLog()
     {
         Console.WriteLine("Feeding Log");
         Console.WriteLine($"Duration:  {_duration}");
@@ -28,9 +31,9 @@ abstract class FeedingLog
         string[] parts = logData.Split('|');
         return parts[0] switch
         {
-            "Nursing" => new NursingLog().Parse(logData),
-            "Bottle" => new BottleFeedingLog().Parse(logData),
-            "Solid" => new SolidFeedingLog().Parse(logData),
+            "Nursing Log" => new NursingLog().Parse(logData),
+            "Bottle Feeding Log" => new BottleFeedingLog().Parse(logData),
+            "Solid Feeding Log" => new SolidFeedingLog().Parse(logData),
             _ => throw new Exception("Unknown log type")
         };
     }

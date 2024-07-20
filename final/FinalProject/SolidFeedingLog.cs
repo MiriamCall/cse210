@@ -8,13 +8,17 @@ class SolidFeedingLog : FeedingLog
     {
         _foodType = "";
         _foodAmount = 0;
+        _logName = "Solid Feeding Log";
     }
 
-    public void DisplaySolidFeedingLog()
+    public override void DisplayLog()
     {
-        Console.WriteLine("Solid Feeding Log");
-        Console.WriteLine("Food Type: " + _foodType);
-        Console.WriteLine("Food Amount in cups: " + _foodAmount);
+        Console.WriteLine("\n-----------------------------------------");
+        Console.WriteLine($"{_logName}:");
+        Console.WriteLine($"Duration: {_duration}");
+        Console.WriteLine($"Food Type: {_foodType}");
+        Console.WriteLine($"Food Amount in cups: {_foodAmount}");
+        Console.WriteLine("-----------------------------------------\n");
     }
 
     public string GetFoodType()
@@ -69,15 +73,16 @@ class SolidFeedingLog : FeedingLog
 
     public override string ToString()
     {
-        return $"Solid Feeding Log|{_foodType}|{_foodAmount}";
+        return $"{_logName}|{_foodType}|{_foodAmount}";
     }
     public override FeedingLog Parse(string logString)
     {
         string[] parts = logString.Split('|');
         return new SolidFeedingLog
         {
-            _foodType = parts[0],
-            _foodAmount = int.Parse(parts[1])
+            _duration = int.Parse(parts[1]),
+            _foodType = parts[2],
+            _foodAmount = int.Parse(parts[3])
         };
     }
 }

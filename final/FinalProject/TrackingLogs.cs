@@ -14,7 +14,7 @@ class TrackingLogs
         {
             int logIndex = _feedingLogs.IndexOf(log) + 1;
             Console.WriteLine(logIndex + ". ");
-            log.DisplayFeedingLog();
+            log.DisplayLog();
         }
     }
 
