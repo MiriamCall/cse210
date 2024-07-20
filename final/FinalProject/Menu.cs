@@ -75,11 +75,15 @@ class Menu
                         break;
                     case 2:
                         // Sleep
-                        
+                        SleepLog sleepLog = new SleepLog();
+                        sleepLog.RecordSleep();
+                        _trackingLogs.AddLog(sleepLog);
                         break;
                     case 3:
                         // Medication Menu
-                        MedicationMenu();
+                        MedicationLog medicationLog = new MedicationLog();
+                        medicationLog.RecordMedication();
+                        _trackingLogs.AddLog(medicationLog);
                         break;
                     case 4:
                         break;
@@ -127,69 +131,6 @@ class Menu
                     _trackingLogs.AddLog(solidLog);
                     break;
                 case 4:
-                    break;
-                default:
-                    Console.WriteLine("Invalid choice. Please try again.");
-                    break;
-            }
-        }
-        else
-        {
-            Console.WriteLine("Invalid choice. Please try again.");
-        }
-    }
-
-    public void SleepMenu()
-    {
-        Console.WriteLine("1. Record Nap Time");
-        Console.WriteLine("2. Record Night Sleep");
-        Console.WriteLine("3. Back");
-
-        string input = Console.ReadLine();
-        if(int.TryParse(input, out choice))
-        {
-            switch(choice)
-            {
-                case 1:
-                    // RecordNap();
-                    break;
-                case 2:
-                    // RecordNightSleep();
-                    break;
-                case 3:
-                    break;
-                default:
-                    Console.WriteLine("Invalid choice. Please try again.");
-                    break;
-            }
-        }
-        else
-        {
-            Console.WriteLine("Invalid choice. Please try again.");
-        }
-    }
-
-    public void MedicationMenu()
-    {
-        Console.WriteLine("1. Record Medication");
-        Console.WriteLine("2. Record Vaccination");
-        Console.WriteLine("3. Back");
-
-        string input = Console.ReadLine();
-        if(int.TryParse(input, out choice))
-        {
-            switch(choice)
-            {
-                case 1:
-                    // RecordMedication();
-                    // Record amount();
-                    // Record time();
-                    break;
-                case 2:
-                    // RecordVaccination();
-                    // Record date();
-                    break;
-                case 3:
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
