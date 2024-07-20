@@ -1,10 +1,13 @@
 class SleepLog : Log
 {
     private string _sleepType;
+
+    private int _hours;
     public SleepLog()
     {
         _logName = "Sleep Log";
         _sleepType = "";
+        _minutes = false;
     }
 
     public override void DisplayLog()
@@ -13,7 +16,7 @@ class SleepLog : Log
         Console.WriteLine($"{_logName}:");
         Console.WriteLine($"Timestamp: {_timeStamp}");
         Console.WriteLine($"Sleep Type: {_sleepType}");
-        Console.WriteLine($"Sleep Duration:  {_duration / 60} hours");
+        Console.WriteLine($"Sleep Duration:  {_hours} hours");
         Console.WriteLine($"Sleep Duration:  {_duration} minutes");
         Console.WriteLine("-----------------------------------------\n");
     }
@@ -38,37 +41,41 @@ class SleepLog : Log
             if (!string.IsNullOrEmpty(sleepType))
             {
                 SetSleepType(sleepType);
-                bool minutes = false;
-                Console.Write("Do you want to enter sleep duration in minutes? (y/n)");
+                Console.Write("Do you want to enter sleep duration in minutes? (y/n) ");
                 string response = Console.ReadLine();
                 if (response == "y")
                 {
-                    minutes = true;
-                    Console.Write("Enter sleep duration in minutes: ");
+                    Console.WriteLine("Enter sleep duration in minutes: ");
+                    string input = Console.ReadLine();
+                    if (int.TryParse(input, out int duration))
+                    {
+                        SetDuration(duration);
+                        valid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number.");
+                    }
                 }
                 else if (response == "n")
                 {
-                    minutes = false;
-                    Console.Write("Enter sleep duration in hours: ");
+                    Console.WriteLine("Enter sleep duration in hours: ");
+                    string hoursInput = Console.ReadLine();
+                    if (int.TryParse(hoursInput, out int hours))
+                    {
+                        SetDuration(hours * 60);
+                        _hours = hours;
+                        valid = true;
                 }
                 else
                 {
                     Console.WriteLine("Invalid input. Please enter y or n.");
                 }
-                string input = Console.ReadLine();
-                if (int.TryParse(input, out int duration))
-                {
-                    SetDuration(duration);
-                    valid = true;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a number.");
-                }
             }
             else
             {
                 Console.WriteLine("Invalid input. Please enter a sleep type.");
+            }
             }
         }
     }

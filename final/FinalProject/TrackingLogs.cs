@@ -5,10 +5,10 @@ class TrackingLogs
 
     public void DisplayLogs()
     {
-        Console.WriteLine ("\nFeeding Logs: ");
+        Console.WriteLine ("\nLogs: ");
         if (_logs.Count == 0)
         {
-            Console.WriteLine("No feeding logs recorded.");
+            Console.WriteLine("No logs recorded.");
         }
         foreach (Log log in _logs)
         {

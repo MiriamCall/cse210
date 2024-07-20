@@ -96,7 +96,7 @@ class SolidFeedingLog : Log
             _timeStamp = DateTime.Parse(parts[1]),
             _duration = int.Parse(parts[2]),
             _foodType = parts[3],
-            _foodAmount = int.Parse(parts[4])
+            _foodAmount = double.Parse(parts[4])
         };
     }
 }

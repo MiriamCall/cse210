@@ -52,13 +52,13 @@ class MedicationLog : Log
             {
                 SetMedicationName(medicationName);
 
-                Console.Write("Enter dosage in mg: ");
+                Console.WriteLine("Enter dosage in mg: ");
                 string input = Console.ReadLine();
                 if (double.TryParse(input, out double dosage))
                 {
                     SetDosage(dosage);
 
-                    Console.Write("Enter medication duration in hours: ");
+                    Console.WriteLine("Enter medication duration in hours: ");
                     input = Console.ReadLine();
                     if (int.TryParse(input, out int duration))
                     {
