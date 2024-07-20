@@ -62,6 +62,7 @@ class Menu
 
     public void LogSubMenu()
     {
+        choice = 0;
         while (choice != 4)
         {
             Console.WriteLine("\n1. Record Baby Feeding Event");
@@ -77,20 +78,24 @@ class Menu
                     case 1:
                         // Feeding Menu
                         FeedingMenu();
+                        choice = 4;
                         break;
                     case 2:
                         // Sleep
                         SleepLog sleepLog = new SleepLog();
                         sleepLog.RecordSleep();
                         _trackingLogs.AddLog(sleepLog);
+                        choice = 4;
                         break;
                     case 3:
                         // Medication Menu
                         MedicationLog medicationLog = new MedicationLog();
                         medicationLog.RecordMedication();
                         _trackingLogs.AddLog(medicationLog);
+                        choice = 4;
                         break;
                     case 4:
+                        choice = 4;
                         break;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");

@@ -17,7 +17,7 @@ class MedicationLog : Log
         Console.WriteLine($"Timestamp: {_timeStamp}");
         Console.WriteLine($"Medication Name: {_medicationName}");
         Console.WriteLine($"Dosage: {_dosage} mg");
-        Console.WriteLine($"You can take {_medicationName} in {_duration / 60} hours or in {_duration} minutes");
+        Console.WriteLine($"You can take {_medicationName} in {_duration} hours or in {_duration / 60} minutes");
         Console.WriteLine("-----------------------------------------\n");
     }
 

@@ -38,8 +38,23 @@ class SleepLog : Log
             if (!string.IsNullOrEmpty(sleepType))
             {
                 SetSleepType(sleepType);
-
-                Console.WriteLine("Enter sleep duration in minutes: ");
+                bool minutes = false;
+                Console.Write("Do you want to enter sleep duration in minutes? (y/n)");
+                string response = Console.ReadLine();
+                if (response == "y")
+                {
+                    minutes = true;
+                    Console.Write("Enter sleep duration in minutes: ");
+                }
+                else if (response == "n")
+                {
+                    minutes = false;
+                    Console.Write("Enter sleep duration in hours: ");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter y or n.");
+                }
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out int duration))
                 {
