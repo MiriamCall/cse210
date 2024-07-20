@@ -38,6 +38,8 @@ abstract class Log
             "Nursing Log" => new NursingLog().Parse(logData),
             "Bottle Feeding Log" => new BottleFeedingLog().Parse(logData),
             "Solid Feeding Log" => new SolidFeedingLog().Parse(logData),
+            "Sleep Log" => new SleepLog().Parse(logData),
+            "Medication Log" => new MedicationLog().Parse(logData),
             _ => throw new Exception("Unknown log type")
         };
     }
