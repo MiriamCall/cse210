@@ -15,19 +15,20 @@ class FileHandler
 		}
 	}
 
-	public static List<FeedingLog> LoadLogsFromFile(string filePath)
-	{
-		List<FeedingLog> feedingLogs = new List<FeedingLog>();
-		using (StreamReader reader = new StreamReader(filePath))
-		{
-			string line;
-			while ((line = reader.ReadLine()) != null)
-			{
-				FeedingLog log = FeedingLog.Parse(line);
-				feedingLogs.Add(log);
-			}
-		}
-		return feedingLogs;
-	}
+    public static List<FeedingLog> LoadLogsFromFile(string filePath)
+    {
+        List<FeedingLog> feedingLogs = new List<FeedingLog>();
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                FeedingLog log = FeedingLog.CreateLog(line);
+                feedingLogs.Add(log);
+            }
+        }
+        return feedingLogs;
+    }
+
 }
 
