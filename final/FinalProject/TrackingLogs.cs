@@ -1,40 +1,35 @@
 class TrackingLogs
 {
-    private List<FeedingLog> _feedingLogs = new List<FeedingLog>();
+    private List<Log> _logs = new List<Log>();
 
 
-    public void DisplayFeedingLogs()
+    public void DisplayLogs()
     {
         Console.WriteLine ("\nFeeding Logs: ");
-        if (_feedingLogs.Count == 0)
+        if (_logs.Count == 0)
         {
             Console.WriteLine("No feeding logs recorded.");
         }
-        foreach (FeedingLog log in _feedingLogs)
+        foreach (Log log in _logs)
         {
-            int logIndex = _feedingLogs.IndexOf(log) + 1;
+            int logIndex = _logs.IndexOf(log) + 1;
             Console.WriteLine(logIndex + ". ");
             log.DisplayLog();
         }
     }
 
-    public void DisplayLogs()
+    public void AddLog(Log log)
     {
-        DisplayFeedingLogs();
+        _logs.Add(log);
     }
 
-    public void AddFeedingLog(FeedingLog log)
+    public List<Log> GetLogs()
     {
-        _feedingLogs.Add(log);
+        return _logs;
     }
 
-    public List<FeedingLog> GetFeedingLogs()
+    public void SetLogs(List<Log> logs)
     {
-        return _feedingLogs;
-    }
-
-    public void SetFeedingLogs(List<FeedingLog> feedingLogs)
-    {
-        _feedingLogs = feedingLogs;
+        _logs = logs;
     }
 }

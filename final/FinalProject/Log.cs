@@ -1,4 +1,4 @@
-abstract class FeedingLog
+abstract class Log
 {
     protected int _duration;
 
@@ -6,7 +6,7 @@ abstract class FeedingLog
 
     protected DateTime _timeStamp = DateTime.Now;
 
-    public FeedingLog()
+    public Log()
     {
         _duration = 0;
         _logName = "";
@@ -30,7 +30,7 @@ abstract class FeedingLog
         _duration = duration;
     }
 
-    public static FeedingLog CreateLog(string logData)
+    public static Log CreateLog(string logData)
     {
         string[] parts = logData.Split('|');
         return parts[0] switch
@@ -43,5 +43,5 @@ abstract class FeedingLog
     }
 
     public abstract override string ToString();
-    public abstract FeedingLog Parse(string logData);
+    public abstract Log Parse(string logData);
 }

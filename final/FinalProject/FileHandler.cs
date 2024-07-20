@@ -4,30 +4,30 @@ using System.IO;
 
 class FileHandler
 {
-	public static void SaveLogsToFile(string filePath, List<FeedingLog> feedingLogs)
+	public static void SaveLogsToFile(string filePath, List<Log> logs)
 	{
 		using (StreamWriter writer = new StreamWriter(filePath))
 		{
-			foreach (FeedingLog log in feedingLogs)
+			foreach (Log log in logs)
 			{
 				writer.WriteLine(log.ToString());
 			}
 		}
 	}
 
-    public static List<FeedingLog> LoadLogsFromFile(string filePath)
+    public static List<Log> LoadLogsFromFile(string filePath)
     {
-        List<FeedingLog> feedingLogs = new List<FeedingLog>();
+        List<Log> logs = new List<Log>();
         using (StreamReader reader = new StreamReader(filePath))
         {
             string line;
             while ((line = reader.ReadLine()) != null)
             {
-                FeedingLog log = FeedingLog.CreateLog(line);
-                feedingLogs.Add(log);
+                Log log = Log.CreateLog(line);
+                logs.Add(log);
             }
         }
-        return feedingLogs;
+        return logs;
     }
 
 }

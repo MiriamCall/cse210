@@ -1,4 +1,4 @@
-class BottleFeedingLog : FeedingLog
+class BottleFeedingLog : Log
 {
     private int _bottleAmount;
     private string _milkType;
@@ -86,7 +86,7 @@ class BottleFeedingLog : FeedingLog
     {
         return $"{_logName}|{_timeStamp}|{_duration}|{_bottleAmount}|{_milkType}";
     }
-    public override FeedingLog Parse(string logString)
+    public override Log Parse(string logString)
     {
         string[] parts = logString.Split('|');
         return new BottleFeedingLog

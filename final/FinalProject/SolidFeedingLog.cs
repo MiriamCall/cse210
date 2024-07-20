@@ -1,4 +1,4 @@
-class SolidFeedingLog : FeedingLog
+class SolidFeedingLog : Log
 {
     private string _foodType;
     private double _foodAmount;
@@ -87,7 +87,7 @@ class SolidFeedingLog : FeedingLog
     {
         return $"{_logName}|{_timeStamp}|{_duration}{_foodType}|{_foodAmount}";
     }
-    public override FeedingLog Parse(string logString)
+    public override Log Parse(string logString)
     {
         string[] parts = logString.Split('|');
         return new SolidFeedingLog

@@ -1,4 +1,4 @@
-class NursingLog : FeedingLog
+class NursingLog : Log
 {
     private int leftBreastDuration;
     private int rightBreastDuration;
@@ -77,7 +77,7 @@ class NursingLog : FeedingLog
         return $"{_logName}|{_timeStamp}|{_duration}|{leftBreastDuration}|{rightBreastDuration}";
     }
 
-    public override FeedingLog Parse(string logString)
+    public override Log Parse(string logString)
     {
         string[] parts = logString.Split('|');
         return new NursingLog
