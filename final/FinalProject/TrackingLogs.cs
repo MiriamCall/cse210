@@ -32,4 +32,9 @@ class TrackingLogs
     {
         _logs = logs;
     }
+
+    public void ClearLogs()
+    {
+        _logs.Clear();
+    }
 }

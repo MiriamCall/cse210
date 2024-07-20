@@ -13,7 +13,8 @@ class Menu
             Console.WriteLine("2. Display Logs");
             Console.WriteLine("3. Save logs");
             Console.WriteLine("4. Load logs");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("5. Clear All logs");
+            Console.WriteLine("6. Exit");
 
             string input = Console.ReadLine();
             if(int.TryParse(input, out choice))
@@ -39,6 +40,10 @@ class Menu
                         _trackingLogs.SetLogs(loadedLogs);
                         break;
                     case 5:
+                        // Clear all logs
+                        _trackingLogs.ClearLogs();
+                        break;
+                    case 6:
                         // Quit
                         Console.WriteLine("Thank you for using the Baby Tracker. Have a nice day!");
                         Environment.Exit(0);
