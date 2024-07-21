@@ -9,10 +9,10 @@ class Menu
         Console.Clear();
         while (choice !=6)
         {
-            Console.WriteLine("\n1. Record Feeding");
-            Console.WriteLine("2. Display Logs");
-            Console.WriteLine("3. Save logs");
-            Console.WriteLine("4. Load logs");
+            Console.WriteLine("\n1. Record Baby Log");
+            Console.WriteLine("2. Display Baby Logs");
+            Console.WriteLine("3. Save Baby logs");
+            Console.WriteLine("4. Load Baby logs");
             Console.WriteLine("5. Clear All logs");
             Console.WriteLine("6. Exit");
 
